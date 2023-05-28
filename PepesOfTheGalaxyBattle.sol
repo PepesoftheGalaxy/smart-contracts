@@ -53,6 +53,11 @@ contract PepesOfTheGalaxyBattle is Ownable {
 
         // Emit the Staked event
         emit Staked(msg.sender, _pepeId, _amount);
+
+        // If there are at least two players, start a battle
+        if (battleRequests.length >= 2) {
+            matchPlayers();
+        }
     }
 
     // Function to initiate a battle between two Pepes
