@@ -7,7 +7,10 @@ contract PepesOfTheGalaxy is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721("PepesOfTheGalaxy", "POTG") public {
+    address payable private gnosisMultisigWallet;
+
+    constructor(address payable _gnosisMultisigWallet) ERC721("PepesOfTheGalaxy", "POTG") public {
+        gnosisMultisigWallet = _gnosisMultisigWallet;
     }
 
     function mintPepe(address player, string memory tokenURI) public payable returns (uint256) {
@@ -18,6 +21,9 @@ contract PepesOfTheGalaxy is ERC721 {
         uint256 newPepeId = _tokenIds.current();
         _mint(player, newPepeId);
         _setTokenURI(newPepeId, tokenURI);
+
+        // Transfer the MATIC to the Gnosis multisig wallet
+        gnosisMultisigWallet.transfer(msg.value);
 
         return newPepeId;
     }
