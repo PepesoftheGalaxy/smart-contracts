@@ -9,13 +9,21 @@ contract PepesOfTheGalaxyNFT is ERC721 {
 
     address payable private gnosisMultisigWallet;
 
+    struct PepeMetadata {
+        uint256 appearance;
+        uint256 accessories;
+        uint256 experience;
+    }
+
+    mapping(uint256 => PepeMetadata) public tokenMetadata;
+
     event NewPepe(uint256 indexed pepeId, address indexed player, string tokenURI);
 
     constructor(address payable _gnosisMultisigWallet) ERC721("PepesOfTheGalaxy", "POTG") public {
         gnosisMultisigWallet = _gnosisMultisigWallet;
     }
 
-    function mintPepe(address player, string memory tokenURI) public payable returns (uint256) {
+    function mintPepe(address player, string memory tokenURI, uint256 appearance, uint256 accessories) public payable returns (uint256) {
         require(msg.value == 50 ether, "Minting a Pepe costs 50 MATIC");
 
         _tokenIds.increment();
@@ -24,6 +32,13 @@ contract PepesOfTheGalaxyNFT is ERC721 {
         _mint(player, newPepeId);
         _setTokenURI(newPepeId, tokenURI);
 
+        // Store the metadata on-chain
+        tokenMetadata[newPepeId] = PepeMetadata({
+            appearance: appearance,
+            accessories: accessories,
+            experience: 0
+        });
+
         // Emit the NewPepe event
         emit NewPepe(newPepeId, player, tokenURI);
 
@@ -31,5 +46,15 @@ contract PepesOfTheGalaxyNFT is ERC721 {
         gnosisMultisigWallet.transfer(msg.value);
 
         return newPepeId;
+    }
+
+    function getPepeAttributes(uint256 _tokenId) public view returns (uint256 appearance, uint256 accessories, uint256 experience) {
+        PepeMetadata storage metadata = tokenMetadata[_tokenId];
+        return (metadata.appearance, metadata.accessories, metadata.experience);
+    }
+
+    function addExperience(uint256 _tokenId, uint256 experience) public {
+        PepeMetadata storage metadata = tokenMetadata[_tokenId];
+        metadata.experience += experience;
     }
 }
