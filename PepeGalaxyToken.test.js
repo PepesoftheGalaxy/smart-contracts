@@ -173,4 +173,189 @@ contract('PepeGalaxyToken', function (accounts) {
     const recipientBalance = await this.token.balanceOf(recipient);
     assert.equal(recipientBalance.toString(), '5');
   });
+
+  it('sets trading rules correctly', async function () {
+    // Set the trading rules
+    await this.token.setRule(true, recipient, new BN(5), new BN(1), { from: owner });
+  
+    // Check if the tradingOpen variable was set correctly
+    assert.equal(await this.token.tradingOpen(), true);
+  
+    // Check if the uniswapV2Pair variable was set correctly
+    assert.equal(await this.token.uniswapV2Pair(), recipient);
+  
+    // Check if the maxHoldingAmount variable was set correctly
+    assert.equal((await this.token.maxHoldingAmount()).toString(), '5');
+  
+    // Check if the minHoldingAmount variable was set correctly
+    assert.equal((await this.token.minHoldingAmount()).toString(), '1');
+  });
+
+  it('reverts when trying to transfer tokens to the zero address', async function () {
+    // Set the Uniswap pair
+    await this.token.setRule(false, '0x0000000000000000000000000000000000000000', new BN(1), new BN(1), { from: owner });
+    // Attempt to transfer tokens to the zero address and expect it to revert
+    await expectRevert(
+      this.token.transfer('0x0000000000000000000000000000000000000000', new BN(1), { from: owner }),
+      'ERC20: transfer to the zero address'
+    );
+  });
+
+  it('reverts when trying to burn tokens from the zero address', async function () {
+    // Attempt to burn tokens from the zero address and expect it to revert
+    await expectRevert(
+      this.token.burnFrom('0x0000000000000000000000000000000000000000', new BN(1)),
+      'ERC20: burn from the zero address'
+    );
+  });
+
+  it('allows the owner to renounce ownership', async function () {
+    // Renounce ownership
+    await this.token.renounceOwnership({ from: owner });
+    
+    // Check if the owner variable was set to the zero address
+    assert.equal(await this.token.owner(), '0x0000000000000000000000000000000000000000');
+  });
+
+  it('allows the owner to transfer ownership', async function () {
+    // Transfer ownership
+    await this.token.transferOwnership(anotherAccount, { from: owner });
+  
+    // Check if the owner variable was set to the new owner
+    assert.equal(await this.token.owner(), anotherAccount);
+  });
+
+  it('sets the correct owner upon deployment', async function () {
+    assert.equal(await this.token.owner(), owner);
+  });
+   
+  it('allows the owner to transfer ownership', async function () {
+    await this.token.transferOwnership(anotherAccount, { from: owner });
+    assert.equal(await this.token.owner(), anotherAccount);
+  });
+  
+  it('emits an event when ownership is transferred', async function () {
+    const receipt = await this.token.transferOwnership(anotherAccount, { from: owner });
+    expectEvent(receipt, 'OwnershipTransferred', { previousOwner: owner, newOwner: anotherAccount });
+  });
+
+  it('allows the owner to renounce ownership', async function () {
+    await this.token.renounceOwnership({ from: owner });
+    assert.equal(await this.token.owner(), '0x0000000000000000000000000000000000000000');
+  });
+  
+  it('emits an event when ownership is renounced', async function () {
+    const receipt = await this.token.renounceOwnership({ from: owner });
+    expectEvent(receipt, 'OwnershipTransferred', { previousOwner: owner, newOwner: ZERO_ADDRESS });
+  });
+
+  it('reverts when non-owner tries to renounce ownership', async function () {
+    await expectRevert(
+      this.token.renounceOwnership({ from: anotherAccount }),
+      'Ownable: caller is not the owner'
+    );
+  });
+
+  it('reverts when non-owner tries to transfer ownership', async function () {
+    await expectRevert(
+      this.token.transferOwnership(anotherAccount, { from: recipient }),
+      'Ownable: caller is not the owner'
+    );
+  });
+
+  it('reverts when trying to transfer ownership to the zero address', async function () {
+    await expectRevert(
+      this.token.transferOwnership('0x0000000000000000000000000000000000000000', { from: owner }),
+      'Ownable: new owner is the zero address'
+    );
+  });
+
+  it('emits Transfer event on token transfer', async function() {
+    const amount = ethers.utils.parseEther('1');
+    await token.connect(owner).transfer(recipient.address, amount);
+
+    expect(await token.balanceOf(recipient.address))
+        .to.equal(amount, "Transfer did not take place correctly");
+
+    await expect(token.connect(owner).transfer(recipient.address, amount))
+        .to.emit(token, 'Transfer')
+        .withArgs(owner.address, recipient.address, amount);
+});
+
+it('emits Transfer event on token burn', async function() {
+    const amountToBurn = ethers.utils.parseEther('1');
+    await token.connect(owner).burn(amountToBurn);
+
+    expect(await token.balanceOf(owner.address))
+        .to.equal(initialSupply.sub(amountToBurn), "Burn did not reduce balance correctly");
+
+    await expect(token.connect(owner).burn(amountToBurn))
+        .to.emit(token, 'Transfer')
+        .withArgs(owner.address, ethers.constants.AddressZero, amountToBurn);
+});
+
+it('prevents integer underflow', async function() {
+  const amount = ethers.constants.One;
+  await token.transfer(recipient.address, amount);
+
+  await expect(token.connect(recipient).transfer(owner.address, amount.add(1)))
+      .to.be.revertedWith("ERC20: transfer amount exceeds balance");
+});
+
+it('prevents integer overflow', async function() {
+  const maxUint256 = ethers.constants.MaxUint256;
+  const initialBalance = await token.balanceOf(owner.address);
+
+  // Transfer enough tokens to recipient to cause an overflow if recipient's balance is increased again
+  const amount = maxUint256.sub(initialBalance).add(1);
+  await expect(token.connect(owner).transfer(recipient.address, amount))
+      .to.be.revertedWith("ERC20: transfer amount exceeds balance");
+});
+
+it('emits an event when ownership is transferred', async function () {
+  const receipt = await this.token.transferOwnership(anotherAccount, { from: owner });
+  expectEvent(receipt, 'OwnershipTransferred', { previousOwner: owner, newOwner: anotherAccount });
+});
+
+it('emits an event when ownership is renounced', async function () {
+  const receipt = await this.token.renounceOwnership({ from: owner });
+  expectEvent(receipt, 'OwnershipTransferred', { previousOwner: owner, newOwner: ZERO_ADDRESS });
+});
+
+it('reverts when non-owner tries to renounce ownership', async function () {
+  await expectRevert(
+    this.token.renounceOwnership({ from: anotherAccount }),
+    'Ownable: caller is not the owner'
+  );
+});
+
+it('reverts when non-owner tries to transfer ownership', async function () {
+  await expectRevert(
+    this.token.transferOwnership(anotherAccount, { from: recipient }),
+    'Ownable: caller is not the owner'
+  );
+});
+
+it('reverts when trying to transfer ownership to the zero address', async function () {
+  await expectRevert(
+    this.token.transferOwnership('0x0000000000000000000000000000000000000000', { from: owner }),
+    'Ownable: new owner is the zero address'
+  );
+});
+
+it('emits Transfer event on token transfer', async function() {
+  const amount = new BN(1);
+  await this.token.setRule(false, recipient, amount, amount, { from: owner });
+  const receipt = await this.token.transfer(recipient, amount, { from: owner });
+  expectEvent(receipt, 'Transfer', { from: owner, to: recipient, value: amount });
+});
+
+it('emits Transfer event on token burn', async function() {
+  const amountToBurn = new BN(1);
+  await this.token.setRule(false, recipient, amountToBurn, amountToBurn, { from: owner });
+  await this.token.transfer(recipient, amountToBurn, { from: owner });
+  const receipt = await this.token.burn(amountToBurn, { from: recipient });
+  expectEvent(receipt, 'Transfer', { from: recipient, to: ZERO_ADDRESS, value: amountToBurn });
+});
+  
 });
