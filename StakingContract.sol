@@ -2,48 +2,56 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-contract PepeStaking is ReentrancyGuard {
-    struct StakeInfo {
-        uint256 stakeTimestamp;
-        bool rewardClaimed;
+contract StakingContract is ERC721Holder {
+    IERC721 public nftAddress;
+    address public PEPEG_TOKEN_ADDRESS;
+    uint256 public constant STAKING_PERIOD = 7 days;
+
+    struct Stake {
+        uint256 tokenId;
+        uint256 timeStaked;
     }
 
-    IERC721 public nftToken;
-    IERC20 public pepegToken;
+    mapping (address => Stake) private _stakes;
+    mapping (address => uint256) private _totalRewards;
 
-    uint256 public constant STAKE_PERIOD = 7 days;
-    uint256 public constant REWARD_AMOUNT = 10000 * 10**18; // Assuming PEPEG has 18 decimals
+    event Staked(address indexed user, uint256 tokenId, uint256 timestamp);
+    event Withdrawn(address indexed user, uint256 tokenId, uint256 reward, uint256 timestamp);
+    event RewardPaid(address indexed user, uint256 reward);
 
-    mapping(uint256 => StakeInfo) public stakeInfo;
-
-    event Staked(uint256 tokenId);
-    event Withdrawn(uint256 tokenId);
-
-    constructor(IERC721 _nftToken, IERC20 _pepegToken) {
-        nftToken = _nftToken;
-        pepegToken = _pepegToken;
+    constructor(address _nftAddress, address _pepegTokenAddress) {
+        nftAddress = IERC721(_nftAddress);
+        PEPEG_TOKEN_ADDRESS = _pepegTokenAddress;
     }
 
-    function stakeNFT(uint256 tokenId) external nonReentrant {
-        nftToken.transferFrom(msg.sender, address(this), tokenId);
-        stakeInfo[tokenId] = StakeInfo(block.timestamp, false);
-
-        emit Staked(tokenId);
+    function stakeNFT(uint256 _tokenId) external {
+        nftAddress.safeTransferFrom(msg.sender, address(this), _tokenId);
+        _stakes[msg.sender] = Stake(_tokenId, block.timestamp);
+        emit Staked(msg.sender, _tokenId, block.timestamp);
     }
 
-    function withdrawNFT(uint256 tokenId) external nonReentrant {
-        require(stakeInfo[tokenId].stakeTimestamp + STAKE_PERIOD <= block.timestamp, "Staking period not yet complete");
-        require(!stakeInfo[tokenId].rewardClaimed, "Reward already claimed");
+    function withdrawNFT(uint256 _tokenId) external {
+        require(_stakes[msg.sender].tokenId == _tokenId, "NFT not staked");
+        require(block.timestamp >= _stakes[msg.sender].timeStaked + STAKING_PERIOD, "Staking period not over");
 
-        stakeInfo[tokenId].rewardClaimed = true;
+        uint256 reward = 10000; // amount of PEPEG tokens rewarded
 
-        nftToken.transferFrom(address(this), msg.sender, tokenId);
+        // Update the user's total accumulated rewards.
+        _totalRewards[msg.sender] -= reward;
 
-        require(pepegToken.balanceOf(address(this)) >= REWARD_AMOUNT, "Insufficient PEPEG balance in staking contract");
-        pepegToken.transfer(msg.sender, REWARD_AMOUNT);
+        IERC20(PEPEG_TOKEN_ADDRESS).transfer(msg.sender, reward);
+        emit RewardPaid(msg.sender, reward);
 
-        emit Withdrawn(tokenId);
+        _stakes[msg.sender].tokenId = 0;
+        _stakes[msg.sender].timeStaked = 0;
+
+        nftAddress.safeTransferFrom(address(this), msg.sender, _tokenId);
+        emit Withdrawn(msg.sender, _tokenId, reward, block.timestamp);
+    }
+
+    function totalRewards(address user) external view returns (uint256) {
+        return _totalRewards[user];
     }
 }
