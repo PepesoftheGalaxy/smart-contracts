@@ -9,6 +9,8 @@ contract PepesOfTheGalaxy is ERC721 {
 
     address payable private gnosisMultisigWallet;
 
+    event NewPepe(uint256 indexed pepeId, address indexed player, string tokenURI);
+
     constructor(address payable _gnosisMultisigWallet) ERC721("PepesOfTheGalaxy", "POTG") public {
         gnosisMultisigWallet = _gnosisMultisigWallet;
     }
@@ -21,6 +23,9 @@ contract PepesOfTheGalaxy is ERC721 {
         uint256 newPepeId = _tokenIds.current();
         _mint(player, newPepeId);
         _setTokenURI(newPepeId, tokenURI);
+
+        // Emit the NewPepe event
+        emit NewPepe(newPepeId, player, tokenURI);
 
         // Transfer the MATIC to the Gnosis multisig wallet
         gnosisMultisigWallet.transfer(msg.value);
