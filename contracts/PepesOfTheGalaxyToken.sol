@@ -49,8 +49,7 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
         _burn(msg.sender, value);
     }
 
-    // Function to transfer the ownership of the contract
-    function transferOwnership(address newOwner) external onlyOwner {
+    function transferOwnership(address newOwner) public override onlyOwner {
         require(newOwner != address(0), "Invalid new owner"); // The new owner's address must not be the zero address
         super.transferOwnership(newOwner); // Transfer the ownership to the new address
     }
