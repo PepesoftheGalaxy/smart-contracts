@@ -22,7 +22,7 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
     event Minted(address indexed account, uint256 amount);
 
     // Constructor function that is called once when the contract is deployed
-    constructor(uint256 _totalSupply, uint256 _tokenCap) ERC20("Pepes of the Galaxy", "PEPEG") {
+    constructor(uint256 _totalSupply, uint256 _tokenCap) ERC20("Pepes of the Galaxy", "PEPEOG") {
         _mint(msg.sender, _totalSupply); // Mint the initial total supply to the contract deployer
         tokenCap = _tokenCap; // Set the maximum total supply of the token
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender); // Assign the default admin role to the contract deployer
@@ -67,5 +67,17 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
         require(totalSupply() + amount <= tokenCap, "Token cap exceeded"); // The total supply after minting the new tokens must not exceed the token cap
         _mint(account, amount); // Mint the new tokens to the specified account
         emit Minted(account, amount); // Emit the Minted event
+    }
+
+    // Function to grant the minter role to an address
+    function grantMinterRole(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(account != address(0), "Invalid account"); // The account's address must not be the zero address
+        grantRole(MINTER_ROLE, account); // Grant the minter role to the new account
+    }
+
+    // Function to revoke the minter role from an address
+    function revokeMinterRole(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(account != address(0), "Invalid account"); // The account's address must not be the zero address
+        revokeRole(MINTER_ROLE, account); // Revoke the minter role from the account
     }
 }
