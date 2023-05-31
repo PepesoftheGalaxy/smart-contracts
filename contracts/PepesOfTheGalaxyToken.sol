@@ -80,4 +80,11 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
         require(account != address(0), "Invalid account"); // The account's address must not be the zero address
         revokeRole(MINTER_ROLE, account); // Revoke the minter role from the account
     }
+
+    // Function to transfer the admin role to a new address
+    function transferAdminRole(address newAdmin) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(newAdmin != address(0), "Invalid new admin"); // The new admin's address must not be the zero address
+        grantRole(DEFAULT_ADMIN_ROLE, newAdmin); // Grant the admin role to the new admin
+        revokeRole(DEFAULT_ADMIN_ROLE, msg.sender); // Revoke the admin role from the current admin
+    }
 }
