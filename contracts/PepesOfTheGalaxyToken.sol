@@ -16,6 +16,11 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
     uint256 private tokenCap; // The maximum total supply of the token
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE"); // A constant for the minter role
 
+    // Events
+    event RulesSet(bool _limited, address _uniswapV2Pair, uint256 _maxHoldingAmount, uint256 _minHoldingAmount);
+    event Burnt(address indexed account, uint256 value);
+    event Minted(address indexed account, uint256 amount);
+
     // Constructor function that is called once when the contract is deployed
     constructor(uint256 _totalSupply, uint256 _tokenCap) ERC20("Pepes of the Galaxy", "PEPEG") {
         _mint(msg.sender, _totalSupply); // Mint the initial total supply to the contract deployer
@@ -29,6 +34,7 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
         uniswapV2Pair = _uniswapV2Pair; // Set the Uniswap v2 pair for this token
         maxHoldingAmount = _maxHoldingAmount; // Set the maximum holding amount
         minHoldingAmount = _minHoldingAmount; // Set the minimum holding amount
+        emit RulesSet(_limited, _uniswapV2Pair, _maxHoldingAmount, _minHoldingAmount); // Emit the RulesSet event
     }
 
     // Internal function that is called before any transfer of tokens
@@ -46,9 +52,11 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
 
     // Function to burn tokens from the caller's balance
     function burn(uint256 value) external {
-        _burn(msg.sender, value);
+        _burn(msg.sender, value); // Burn the specified amount of tokens from the caller's balance
+        emit Burnt(msg.sender, value); // Emit the Burnt event
     }
 
+    // Function to transfer the ownership of the contract
     function transferOwnership(address newOwner) public override onlyOwner {
         require(newOwner != address(0), "Invalid new owner"); // The new owner's address must not be the zero address
         super.transferOwnership(newOwner); // Transfer the ownership to the new address
@@ -58,5 +66,6 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20, AccessControl {
     function mint(address account, uint256 amount) external onlyRole(MINTER_ROLE) {
         require(totalSupply() + amount <= tokenCap, "Token cap exceeded"); // The total supply after minting the new tokens must not exceed the token cap
         _mint(account, amount); // Mint the new tokens to the specified account
+        emit Minted(account, amount); // Emit the Minted event
     }
 }
