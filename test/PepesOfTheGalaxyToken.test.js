@@ -1,107 +1,141 @@
-const { expect } = require('chai');
-const { ethers } = require('truffle-ethers');
+const { assert, expect } = require('chai');
+const { ethers } = require('hardhat');
 
-const PepesOfTheGalaxyToken = artifacts.require('PepesOfTheGalaxyToken');
-
-contract('PepesOfTheGalaxyToken', function (accounts) {
-    const [ owner, other, uniswapV2Pair ] = accounts;
+describe('PepesOfTheGalaxyToken', function () {
+    let owner;
+    let other;
+    let another;
+    let uniswapV2Pair;
+    let PepesOfTheGalaxyToken;
+    let token;
 
     beforeEach(async function () {
-        this.token = await PepesOfTheGalaxyToken.new(100000, { from: owner });
+        [owner, other, uniswapV2Pair, another, ...rest] = await ethers.getSigners();
+        PepesOfTheGalaxyToken = await ethers.getContractFactory('PepesOfTheGalaxyToken');
+        token = await PepesOfTheGalaxyToken.deploy(8880000000);
+        await token.deployed();
     });
 
     describe('constructor', function () {
         it('should assign the total supply of tokens to the owner', async function () {
-            const ownerBalance = await this.token.balanceOf(owner);
-            expect(ownerBalance.toString()).to.equal('100000');
+            const ownerBalance = await token.balanceOf(owner.address);
+            expect(ownerBalance.toString()).to.equal('8880000000');
         });
     });
 
     describe('setRule', function () {
         it('should set trading rules', async function () {
-            await this.token.setRule(true, uniswapV2Pair, 5000, 1000, { from: owner });
+            await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
 
-            const limited = await this.token.limited();
-            const maxHoldingAmount = await this.token.maxHoldingAmount();
-            const minHoldingAmount = await this.token.minHoldingAmount();
-            const pair = await this.token.uniswapV2Pair();
+            const limited = await token.limited();
+            const maxHoldingAmount = await token.maxHoldingAmount();
+            const minHoldingAmount = await token.minHoldingAmount();
+            const pair = await token.uniswapV2Pair();
 
             expect(limited).to.equal(true);
             expect(maxHoldingAmount.toString()).to.equal('5000');
             expect(minHoldingAmount.toString()).to.equal('1000');
-            expect(pair).to.equal(uniswapV2Pair);
+            expect(pair).to.equal(uniswapV2Pair.address);
         });
     });
 
     describe('_beforeTokenTransfer', function () {
         it('should not allow transfers if trading is not started', async function () {
-            await expect(
-                this.token.transfer(other, 100, { from: owner })
-            ).to.be.revertedWith('trading is not started');
-        });
+            // Transfer some tokens to `other` account
+            await token.connect(owner).transfer(other.address, 200);
+            try {
+                // Try to transfer from `other` to `another` account
+                await token.connect(other).transfer(another.address, 100);
+                assert.fail("Expected transaction to be reverted");
+            } catch (e) {
+                assert.include(e.message, 'trading is not started');
+            }
+
+            // Start trading by setting trading rules
+             await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
+
+             // Try to transfer again after trading is started
+            await token.connect(other).transfer(another.address, 100);
+
+        });        
 
         it('should check the holding restrictions', async function () {
-            await this.token.setRule(true, uniswapV2Pair, 5000, 1000, { from: owner });
-            await this.token.transfer(uniswapV2Pair, 5000, { from: owner });
+            await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
+            await token.connect(owner).transfer(uniswapV2Pair.address, 5000);
             
             await expect(
-                this.token.transfer(other, 6000, { from: uniswapV2Pair })
+                token.connect(uniswapV2Pair).transfer(other.address, 6000)
             ).to.be.revertedWith('Forbid');
         });
     });
 
+    describe('_beforeTokenTransfer', function () {
+        it('should allow transfers when trading is started', async function () {
+            // Start trading by setting trading rules
+            await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
+    
+            // Transfer some tokens to `other` account
+            await token.connect(owner).transfer(other.address, 200);
+    
+            // Try to transfer from `other` to `another` account
+            await token.connect(other).transfer(another.address, 100);
+    
+            // Verify the balances of `other` and `another` accounts
+            const otherBalance = await token.balanceOf(other.address);
+            const anotherBalance = await token.balanceOf(another.address);
+            expect(otherBalance.toString()).to.equal('100');
+            expect(anotherBalance.toString()).to.equal('100');
+        });
+    });    
+
     describe('transferOwnership', function () {
         it('should transfer ownership', async function () {
-            await this.token.transferOwnership(other, { from: owner });
-            const newOwner = await this.token.owner();
-            expect(newOwner).to.equal(other);
+            await token.connect(owner).transferOwnership(other.address);
+            const newOwner = await token.owner();
+            expect(newOwner).to.equal(other.address);
         });
 
         it('should not allow zero address to be owner', async function () {
             await expect(
-                this.token.transferOwnership(ethers.constants.AddressZero, { from: owner })
+                token.connect(owner).transferOwnership(ethers.constants.AddressZero)
             ).to.be.revertedWith('Invalid new owner');
         });
     });
+
     describe('setRule', function () {
         it('should not allow non-owners to set rules', async function () {
             await expect(
-                this.token.setRule(true, uniswapV2Pair, 5000, 1000, { from: other })
+                token.connect(other).setRule(true, uniswapV2Pair.address, 5000, 1000)
             ).to.be.revertedWith('Ownable: caller is not the owner');
         });
     });
     
     describe('_beforeTokenTransfer', function () {
         it('should not check holding restrictions when from is not uniswapV2Pair', async function () {
-            await this.token.setRule(true, uniswapV2Pair, 5000, 1000, { from: owner });
-            await this.token.transfer(other, 100, { from: owner });
+            await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
+            await token.connect(owner).transfer(other.address, 100);
     
-            const otherBalance = await this.token.balanceOf(other);
+            const otherBalance = await token.balanceOf(other.address);
             expect(otherBalance.toString()).to.equal('100');
         });
     
         it('should allow transfer when holding is exactly at max or min limit', async function () {
-            await this.token.setRule(true, uniswapV2Pair, 5000, 1000, { from: owner });
-            await this.token.transfer(uniswapV2Pair, 5000, { from: owner });
+            await token.connect(owner).setRule(true, uniswapV2Pair.address, 5000, 1000);
+            await token.connect(owner).transfer(uniswapV2Pair.address, 5000);
     
-            await expect(
-                this.token.transfer(other, 5000, { from: uniswapV2Pair })
-            ).to.be.fulfilled;
-    
-            await expect(
-                this.token.transfer(uniswapV2Pair, 4000, { from: other })
-            ).to.be.fulfilled;
-    
-            await expect(
-                this.token.transfer(other, 1000, { from: uniswapV2Pair })
-            ).to.be.fulfilled;
+            try {
+                await token.connect(uniswapV2Pair).transfer(other.address, 5000);
+                await token.connect(other).transfer(uniswapV2Pair.address, 4000);
+                await token.connect(uniswapV2Pair).transfer(other.address, 1000);
+            } catch (e) {
+                assert.fail("Expected transactions to succeed");
+            }
         });
     });
-    
     describe('transferOwnership', function () {
         it('should not allow non-owners to transfer ownership', async function () {
             await expect(
-                this.token.transferOwnership(other, { from: other })
+                token.connect(other).transferOwnership(other.address)
             ).to.be.revertedWith('Ownable: caller is not the owner');
         });
     });    
