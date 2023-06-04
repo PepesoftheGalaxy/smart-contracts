@@ -3,6 +3,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 // Interface for the PepesOfTheGalaxyNFT contract (ERC721)
 interface IPepesOfTheGalaxyNFT {
@@ -52,53 +55,38 @@ function stake(uint256 _pepeId, uint256 _amount) public {
 }
 
     // Battle function
-function battle() public onlyOwner {
-    require(battleRequests.length >= 2, "Not enough players");
+    function battle() public onlyOwner {
+        require(battleRequests.length >= 2, "Not enough players");
 
-    // Get the first two players
-    BattleRequest memory player1 = battleRequests[0];
-    BattleRequest memory player2 = battleRequests[1];
+        // Get the first two players
+        BattleRequest memory player1 = battleRequests[0];
+        BattleRequest memory player2 = battleRequests[1];
 
-    // Get the attributes of the two pepes
-    (uint256 p1Attr1, uint256 p1Attr2) = pepeNFT.getPepeAttributes(player1.pepeId);
-    (uint256 p2Attr1, uint256 p2Attr2) = pepeNFT.getPepeAttributes(player2.pepeId);
+        // Get the attributes of the two pepes
+        (uint256 p1Attr1, uint256 p1Attr2) = pepeNFT.getPepeAttributes(player1.pepeId);
+        (uint256 p2Attr1, uint256 p2Attr2) = pepeNFT.getPepeAttributes(player2.pepeId);
 
-    // Calculate luck factor
-    uint256 randNonce = uint256(keccak256(abi.encodePacked(block.timestamp, player1.player, player1.pepeId, player2.pepeId)));
-    uint256 luckFactor = randNonce % 11;
-    p1Attr1 += luckFactor;
-    p2Attr1 += luckFactor;
+        // Determine the winner
+        uint256 winnerId;
+        if (p1Attr1 + p1Attr2 > p2Attr1 + p2Attr2) {
+            winnerId = player1.pepeId;
+            // Transfer the staked tokens to the winner
+            require(pepeToken.transfer(player1.player, player1.amount + player2.amount), "Token transfer failed");
+        } else {
+            winnerId = player2.pepeId;
+            // Transfer the staked tokens to the winner
+            require(pepeToken.transfer(player2.player, player1.amount + player2.amount), "Token transfer failed");
+        }
 
-    // Determine the winner
-    uint256 winnerId;
-    if (p1Attr1 + p1Attr2 > p2Attr1 + p2Attr2) {
-        winnerId = player1.pepeId;
-        pepeToken.transfer(player1.player, player1.amount + player2.amount);
-        pepeNFT.addExperience(player1.pepeId, 2);
-        pepeNFT.addExperience(player2.pepeId, 1);
-    } else {
-        winnerId = player2.pepeId;
-        pepeToken.transfer(player2.player, player1.amount + player2.amount);
-        pepeNFT.addExperience(player2.pepeId, 2);
-        pepeNFT.addExperience(player1.pepeId, 1);
-    }
+        // Emit the battle event
+        emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, winnerId);
 
-    // Emit the battle outcome event
-    emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, winnerId);
 
-    // Remove the two players from the battle requests array
-    delete battleRequests[0];
-    delete battleRequests[1];
-
-    // Shift array to left by 2 positions
-    for (uint256 i = 0; i< battleRequests.length - 2; i++){
-        battleRequests[i] = battleRequests[i+2];
-    }
-
-    // Pop last 2 elements
-    if(battleRequests.length > 1) {
+        // Remove the first two battle requests
+        for (uint256 i = 0; i < battleRequests.length - 2; i++) {
+            battleRequests[i] = battleRequests[i + 2];
+        }
         battleRequests.pop();
         battleRequests.pop();
     }
-}
 }

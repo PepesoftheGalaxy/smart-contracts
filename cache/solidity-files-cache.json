@@ -37,8 +37,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyBattle.sol": {
-      "lastModificationDate": 1685859390187,
-      "contentHash": "22facdac6f84e5a6cc226961c458ece4",
+      "lastModificationDate": 1685919868716,
+      "contentHash": "dc41e28c79dfed375c22e57e505795df",
       "sourceName": "contracts/PepesOfTheGalaxyBattle.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -65,10 +65,7 @@
       },
       "imports": [
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/utils/Counters.sol"
+        "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
