@@ -45,8 +45,9 @@ contract PepesOfTheGalaxyNFT is ERC721URIStorage, AccessControl {
     }
 
     function getPepeAttributes(uint256 _tokenId) public view returns (uint256 appearance, uint256 accessories, uint256 experience) {
-        PepeMetadata storage metadata = tokenMetadata[_tokenId];
-        return (metadata.appearance, metadata.accessories, metadata.experience);
+    require(_exists(_tokenId), "Pepe does not exist");
+    PepeMetadata storage metadata = tokenMetadata[_tokenId];
+    return (metadata.appearance, metadata.accessories, metadata.experience);
     }
 
     function addExperience(uint256 _tokenId, uint256 experience) public {

@@ -1108,8 +1108,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyNFT.sol": {
-      "lastModificationDate": 1685917030892,
-      "contentHash": "69319a6c288a77c36fa4ea50c7a1ccf5",
+      "lastModificationDate": 1685918843064,
+      "contentHash": "4c79dc7310f4a897fc66e05e91197dbd",
       "sourceName": "contracts/PepesOfTheGalaxyNFT.sol",
       "solcConfig": {
         "version": "0.8.7",
