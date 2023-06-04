@@ -6,8 +6,7 @@ const PepesOfTheGalaxyNFTStaking = artifacts.require('./PepesOfTheGalaxyNFTStaki
 module.exports = async function(deployer) {
   // Deploy the PepesOfTheGalaxyToken contract
   const initialSupply = web3.utils.toWei('8880000000', 'ether'); // Initial total supply of tokens
-  const tokenCap = web3.utils.toWei('8880000000', 'ether'); // Maximum total supply of tokens
-  await deployer.deploy(PepesOfTheGalaxyToken, initialSupply, tokenCap);
+  await deployer.deploy(PepesOfTheGalaxyToken, initialSupply);
   const pepeToken = await PepesOfTheGalaxyToken.deployed();
   const pepeTokenAddress = pepeToken.address;
 
