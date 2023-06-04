@@ -21,6 +21,7 @@ contract PepesOfTheGalaxyNFT is ERC721URIStorage, AccessControl {
     mapping(uint256 => PepeMetadata) public tokenMetadata;
 
     event NewPepe(uint256 indexed pepeId, address indexed player, string tokenURI);
+    event ExperienceUpdated(uint256 indexed pepeId, uint256 experience); // Added event
 
     constructor(address payable _gnosisMultisigWallet) ERC721("PepesOfTheGalaxy", "POTG") {
         gnosisMultisigWallet = _gnosisMultisigWallet;
@@ -52,6 +53,7 @@ contract PepesOfTheGalaxyNFT is ERC721URIStorage, AccessControl {
         require(hasRole(EXPERIENCE_UPDATER_ROLE, msg.sender), "Caller is not allowed to update experience");
         PepeMetadata storage metadata = tokenMetadata[_tokenId];
         metadata.experience += experience;
+        emit ExperienceUpdated(_tokenId, metadata.experience); // Emit the event when experience is updated
     }
 
     function supportsInterface(bytes4 interfaceId) public view override(ERC721URIStorage, AccessControl) returns (bool) {

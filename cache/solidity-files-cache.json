@@ -1070,8 +1070,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyToken.sol": {
-      "lastModificationDate": 1685897337755,
-      "contentHash": "2a00817f67904419f7bbb3873aa7275c",
+      "lastModificationDate": 1685902596990,
+      "contentHash": "51d0504e479f73ef11c05ae3fc62cb8c",
       "sourceName": "contracts/PepesOfTheGalaxyToken.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -1108,8 +1108,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyNFT.sol": {
-      "lastModificationDate": 1685863588983,
-      "contentHash": "a9928f11bbe98dfcfe4a6247c35886b2",
+      "lastModificationDate": 1685917030892,
+      "contentHash": "69319a6c288a77c36fa4ea50c7a1ccf5",
       "sourceName": "contracts/PepesOfTheGalaxyNFT.sol",
       "solcConfig": {
         "version": "0.8.7",

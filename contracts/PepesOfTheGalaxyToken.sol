@@ -38,7 +38,7 @@ contract PepesOfTheGalaxyToken is Ownable, ERC20 {
         }
         // If token transfers are limited and tokens are being bought from Uniswap, check the holding restrictions
         if (limited && from == uniswapV2Pair) {
-            require(super.balanceOf(to) + amount <= maxHoldingAmount && super.balanceOf(to) + amount >= minHoldingAmount, "Forbid");
+            require(super.balanceOf(to) + amount <= maxHoldingAmount && super.balanceOf(to) + amount >= minHoldingAmount, "Token transfer exceeds holding restrictions");
         }
     }
 
