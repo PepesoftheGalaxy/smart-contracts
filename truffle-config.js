@@ -1,19 +1,18 @@
-require('dotenv').config();.
+require('dotenv').config();
 
 const { MNEMONIC, PROJECT_ID } = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
-
   networks: {
-   development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-     },
-     mumbai: {
-      provider: () => new HDWalletProvider(MNEMONIC, `https://rpc.ankr.com/polygon_mumbai`),
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+    },
+    mumbai: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://polygon-mumbai.infura.io/v3/20c37320d65e45d2b8f314d8fdec0a5e`),
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,
@@ -34,21 +33,21 @@ module.exports = {
       skipDryRun: true
     }
   },
-
-  // Set default mocha options here, use special reporters, etc.
-  mocha: {
-    // timeout: 100000
-  },
-  // Configure your compilers
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    polygonscan: process.env.POLYGONSCANAPIKEY
+  },  
   compilers: {
-  solc: {
-    version: "0.8.7",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200  // Optimize for how many times you expect the contract to be called
+    solc: {
+      version: "0.8.7",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
       }
     }
   }
-},
 };

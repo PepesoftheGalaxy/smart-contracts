@@ -1,0 +1,3906 @@
+{
+  "contractName": "IPepesOfTheGalaxyNFT",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPepeAttributes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "appearance",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "accessories",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "experience",
+          "type": "uint256"
+        }
+      ],
+      "name": "addExperience",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"experience\",\"type\":\"uint256\"}],\"name\":\"addExperience\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"getPepeAttributes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"appearance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"accessories\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PepesOfTheGalaxyBattle.sol\":\"IPepesOfTheGalaxyNFT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xba43b97fba0d32eb4254f6a5a297b39a19a247082a02d6e69349e071e2946218\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fc980984badf3984b6303b377711220e067722bbd6a135b24669ff5069ef9f32\",\"dweb:/ipfs/QmPHXMSXj99XjSVM21YsY6aNtLLjLVXDbyN76J5HQYvvrz\"]},\"@openzeppelin/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0xd04b0f06e0666f29cf7cccc82894de541e19bb30a765b107b1e40bb7fe5f7d7a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7b652499d098e88d8d878374616bb58434301061cae2253298b3f374044e0ddb\",\"dweb:/ipfs/QmbhAzctqo5jrSKU6idHdVyqfmzCcDbNUPvmx4GiXxfA6q\"]},\"@openzeppelin/contracts/interfaces/IERC4906.sol\":{\"keccak256\":\"0x2a9dadb806be80dd451821f1f1190eb9aa6f6edae85b185db29d60767cc0c5f4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5c25cac8dbe5bd96320053d23c3dacdb875e629d7c53ac00892eb7aa8500bde6\",\"dweb:/ipfs/Qmaf2oqbxxdJA9DphAoH4UCb8aXEAVM8fnu6qMxHJ5ta4A\"]},\"@openzeppelin/contracts/interfaces/IERC721.sol\":{\"keccak256\":\"0xaf297d12d8d4a57fe01a70f0ef38908f208e3faedc577056d0b728fa2f3ccf0c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fbfaf37123958822a2720a4ea29651be00edab787540b770f73d3e025d286ff8\",\"dweb:/ipfs/QmbzgWeTm8hJVUqWrNAwFjshqbYVyeGpQA8D1huzxQdmw6\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"@openzeppelin/contracts/token/ERC721/ERC721.sol\":{\"keccak256\":\"0x2c309e7df9e05e6ce15bedfe74f3c61b467fc37e0fae9eab496acf5ea0bbd7ff\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7063b5c98711a98018ba4635ac74cee1c1cfa2ea01099498e062699ed9530005\",\"dweb:/ipfs/QmeJ8rGXkcv7RrqLdAW8PCXPAykxVsddfYY6g5NaTwmRFE\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0xa82b58eca1ee256be466e536706850163d2ec7821945abd6b4778cfb3bee37da\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6e75cf83beb757b8855791088546b8337e9d4684e169400c20d44a515353b708\",\"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV\"]},\"@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol\":{\"keccak256\":\"0xa8796bd16014cefb8c26449413981a49c510f92a98d6828494f5fd046223ced3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://63a5e0bb5a7d182e0d0eef87033f78115eab791de3626a929bc98c157087880a\",\"dweb:/ipfs/QmetkXAu2CJKS4qrZtEQPU8okAPwUwa6HL4XYwk8vrYMk8\"]},\"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol\":{\"keccak256\":\"0x7942989e3525aec1672469e4c65fb33fbd19c785c9cadbcb70fcbe1fe8bfdd37\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c9f260258c2be0e3b75f8ca285872c4bfa3a8fc97fdc2e62366c78abf22b54f\",\"dweb:/ipfs/QmTg1DMNwCDj8NVi6i1noqx7cxuRdPP4VyW4fzDkKAKmH2\"]},\"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol\":{\"keccak256\":\"0xd1556954440b31c97a142c6ba07d5cade45f96fafd52091d33a14ebe365aecbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://26fef835622b46a5ba08b3ef6b46a22e94b5f285d0f0fb66b703bd30217d2c34\",\"dweb:/ipfs/QmZ548qdwfL1qF7aXz3xh1GCdTiST81kGGuKRqVUfYmPZR\"]},\"@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931\",\"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"@openzeppelin/contracts/utils/Counters.sol\":{\"keccak256\":\"0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://59e1c62884d55b70f3ae5432b44bb3166ad71ae3acd19c57ab6ddc3c87c325ee\",\"dweb:/ipfs/QmezuXg5GK5oeA4F91EZhozBFekhq5TD966bHPH18cCqhu\"]},\"@openzeppelin/contracts/utils/Strings.sol\":{\"keccak256\":\"0x3088eb2868e8d13d89d16670b5f8612c4ab9ff8956272837d8e90106c59c14a0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b81d9ff6559ea5c47fc573e17ece6d9ba5d6839e213e6ebc3b4c5c8fe4199d7f\",\"dweb:/ipfs/QmPCW1bFisUzJkyjroY3yipwfism9RRCigCcK1hbXtVM8n\"]},\"@openzeppelin/contracts/utils/introspection/ERC165.sol\":{\"keccak256\":\"0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d\",\"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"@openzeppelin/contracts/utils/math/Math.sol\":{\"keccak256\":\"0xe4455ac1eb7fc497bb7402579e7b4d64d928b846fce7d2b6fde06d366f21c2b3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cc8841b3cd48ad125e2f46323c8bad3aa0e88e399ec62acb9e57efa7e7c8058c\",\"dweb:/ipfs/QmSqE4mXHA2BXW58deDbXE8MTcsL5JSKNDbm23sVQxRLPS\"]},\"@openzeppelin/contracts/utils/math/SignedMath.sol\":{\"keccak256\":\"0xf92515413956f529d95977adc9b0567d583c6203fc31ab1c23824c35187e3ddc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c50fcc459e49a9858b6d8ad5f911295cb7c9ab57567845a250bf0153f84a95c7\",\"dweb:/ipfs/QmcEW85JRzvDkQggxiBBLVAasXWdkhEysqypj9EaB6H2g6\"]},\"project:/contracts/PepesOfTheGalaxyBattle.sol\":{\"keccak256\":\"0x9c6009f5e439111c522a139fe9a962478f30f58e4c49ad259ef44ae21abf9367\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d5b84a22fe23665d18e46610cc4d000a308ca69b475308738b166f6e2c93122c\",\"dweb:/ipfs/QmcrzFwT8UYqGoty2HoAcp82sJtmX9vWsuiEZacHPY6Rkg\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\nimport \"@openzeppelin/contracts/access/Ownable.sol\";\nimport \"@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol\";\nimport \"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol\";\nimport \"@openzeppelin/contracts/utils/Counters.sol\";\n\n// Interface for the PepesOfTheGalaxyNFT contract (ERC721)\ninterface IPepesOfTheGalaxyNFT {\n    function getPepeAttributes(uint256 _tokenId) external view returns (uint256 appearance, uint256 accessories);\n    function addExperience(uint256 _tokenId, uint256 experience) external; \n}\n\ncontract PepesOfTheGalaxyBattle is Ownable {\n    // Establish connection with PepesOfTheGalaxyNFT contract\n    IPepesOfTheGalaxyNFT public pepeNFT;\n    // Establish connection with the token contract\n    IERC20 public pepeToken;\n\n    // Structure for a battle request\n    struct BattleRequest {\n        uint256 pepeId;\n        uint256 amount;\n        address player;\n    }\n\n    // Array to keep track of battle requests\n    BattleRequest[] public battleRequests;\n\n    // Events for staking, battle outcome and transfer\n    event StakedForBattle(uint256 indexed pepeId, uint256 amount, address indexed player);\n    event BattleOutcome(address indexed player1, address indexed player2, uint256 pepe1Id, uint256 pepe2Id, uint256 winnerId);\n    event Transfer(address indexed from, address indexed to, uint256 amount);\n\n    constructor(address _pepeNFT, address _pepeToken) {\n        pepeNFT = IPepesOfTheGalaxyNFT(_pepeNFT);\n        pepeToken = IERC20(_pepeToken);\n    }\n\n  // Stake a specific amount of tokens with a specific NFT\nfunction stake(uint256 _pepeId, uint256 _amount) public {\n    // Transfer tokens to this contract\n    require(pepeToken.transferFrom(msg.sender, address(this), _amount), \"Token transfer failed\");\n\n    // Add battle request\n    BattleRequest memory newRequest;\n    newRequest.pepeId = _pepeId;\n    newRequest.amount = _amount;\n    newRequest.player = msg.sender;\n    battleRequests.push(newRequest);\n\n    emit StakedForBattle(_pepeId, _amount, msg.sender);\n}\n\n    // Battle function\n    function battle() public onlyOwner {\n        require(battleRequests.length >= 2, \"Not enough players\");\n\n        // Get the first two players\n        BattleRequest memory player1 = battleRequests[0];\n        BattleRequest memory player2 = battleRequests[1];\n\n        // Get the attributes of the two pepes\n        (uint256 p1Attr1, uint256 p1Attr2) = pepeNFT.getPepeAttributes(player1.pepeId);\n        (uint256 p2Attr1, uint256 p2Attr2) = pepeNFT.getPepeAttributes(player2.pepeId);\n\n        // Determine the winner\n        uint256 winnerId;\n        if (p1Attr1 + p1Attr2 > p2Attr1 + p2Attr2) {\n            winnerId = player1.pepeId;\n            // Transfer the staked tokens to the winner\n            require(pepeToken.transfer(player1.player, player1.amount + player2.amount), \"Token transfer failed\");\n        } else {\n            winnerId = player2.pepeId;\n            // Transfer the staked tokens to the winner\n            require(pepeToken.transfer(player2.player, player1.amount + player2.amount), \"Token transfer failed\");\n        }\n\n        // Emit the battle event\n        emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, winnerId);\n\n\n        // Remove the first two battle requests\n        for (uint256 i = 0; i < battleRequests.length - 2; i++) {\n            battleRequests[i] = battleRequests[i + 2];\n        }\n        battleRequests.pop();\n        battleRequests.pop();\n    }\n}\n",
+  "sourcePath": "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyBattle.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/PepesOfTheGalaxyBattle.sol",
+    "exportedSymbols": {
+      "Address": [
+        3243
+      ],
+      "Context": [
+        3265
+      ],
+      "Counters": [
+        3339
+      ],
+      "ERC165": [
+        3592
+      ],
+      "ERC721": [
+        2211
+      ],
+      "ERC721Enumerable": [
+        2699
+      ],
+      "ERC721URIStorage": [
+        2855
+      ],
+      "IERC165": [
+        3604
+      ],
+      "IERC20": [
+        1259
+      ],
+      "IERC4906": [
+        526
+      ],
+      "IERC721": [
+        2327
+      ],
+      "IERC721Enumerable": [
+        2886
+      ],
+      "IERC721Metadata": [
+        2913
+      ],
+      "IERC721Receiver": [
+        2345
+      ],
+      "IPepesOfTheGalaxyNFT": [
+        4965
+      ],
+      "Math": [
+        4470
+      ],
+      "Ownable": [
+        501
+      ],
+      "PepesOfTheGalaxyBattle": [
+        5237
+      ],
+      "SignedMath": [
+        4887
+      ],
+      "Strings": [
+        3568
+      ]
+    },
+    "id": 5238,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4943,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:27"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 4944,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 5238,
+        "sourceUnit": 1260,
+        "src": "57:56:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/access/Ownable.sol",
+        "file": "@openzeppelin/contracts/access/Ownable.sol",
+        "id": 4945,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 5238,
+        "sourceUnit": 502,
+        "src": "114:52:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "id": 4946,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 5238,
+        "sourceUnit": 2700,
+        "src": "167:78:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "id": 4947,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 5238,
+        "sourceUnit": 2856,
+        "src": "246:78:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/utils/Counters.sol",
+        "file": "@openzeppelin/contracts/utils/Counters.sol",
+        "id": 4948,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 5238,
+        "sourceUnit": 3340,
+        "src": "325:52:27",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 4965,
+        "linearizedBaseContracts": [
+          4965
+        ],
+        "name": "IPepesOfTheGalaxyNFT",
+        "nameLocation": "448:20:27",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "51a15cad",
+            "id": 4957,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPepeAttributes",
+            "nameLocation": "484:17:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4951,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4950,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "510:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4957,
+                  "src": "502:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4949,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "502:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "501:18:27"
+            },
+            "returnParameters": {
+              "id": 4956,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4953,
+                  "mutability": "mutable",
+                  "name": "appearance",
+                  "nameLocation": "551:10:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4957,
+                  "src": "543:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4952,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "543:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4955,
+                  "mutability": "mutable",
+                  "name": "accessories",
+                  "nameLocation": "571:11:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4957,
+                  "src": "563:19:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4954,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "563:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "542:41:27"
+            },
+            "scope": 4965,
+            "src": "475:109:27",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5d240c58",
+            "id": 4964,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addExperience",
+            "nameLocation": "598:13:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4962,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4959,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "620:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4964,
+                  "src": "612:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4958,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "612:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4961,
+                  "mutability": "mutable",
+                  "name": "experience",
+                  "nameLocation": "638:10:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4964,
+                  "src": "630:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4960,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "630:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "611:38:27"
+            },
+            "returnParameters": {
+              "id": 4963,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "658:0:27"
+            },
+            "scope": 4965,
+            "src": "589:70:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5238,
+        "src": "438:224:27",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 4966,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 501,
+              "src": "699:7:27"
+            },
+            "id": 4967,
+            "nodeType": "InheritanceSpecifier",
+            "src": "699:7:27"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 5237,
+        "linearizedBaseContracts": [
+          5237,
+          501,
+          3265
+        ],
+        "name": "PepesOfTheGalaxyBattle",
+        "nameLocation": "673:22:27",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "7592fc01",
+            "id": 4970,
+            "mutability": "mutable",
+            "name": "pepeNFT",
+            "nameLocation": "803:7:27",
+            "nodeType": "VariableDeclaration",
+            "scope": 5237,
+            "src": "775:35:27",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+              "typeString": "contract IPepesOfTheGalaxyNFT"
+            },
+            "typeName": {
+              "id": 4969,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 4968,
+                "name": "IPepesOfTheGalaxyNFT",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 4965,
+                "src": "775:20:27"
+              },
+              "referencedDeclaration": 4965,
+              "src": "775:20:27",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                "typeString": "contract IPepesOfTheGalaxyNFT"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "21cc4c3f",
+            "id": 4973,
+            "mutability": "mutable",
+            "name": "pepeToken",
+            "nameLocation": "882:9:27",
+            "nodeType": "VariableDeclaration",
+            "scope": 5237,
+            "src": "868:23:27",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$1259",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "id": 4972,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 4971,
+                "name": "IERC20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 1259,
+                "src": "868:6:27"
+              },
+              "referencedDeclaration": 1259,
+              "src": "868:6:27",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$1259",
+                "typeString": "contract IERC20"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "PepesOfTheGalaxyBattle.BattleRequest",
+            "id": 4980,
+            "members": [
+              {
+                "constant": false,
+                "id": 4975,
+                "mutability": "mutable",
+                "name": "pepeId",
+                "nameLocation": "975:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 4980,
+                "src": "967:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4974,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "967:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4977,
+                "mutability": "mutable",
+                "name": "amount",
+                "nameLocation": "999:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 4980,
+                "src": "991:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4976,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "991:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4979,
+                "mutability": "mutable",
+                "name": "player",
+                "nameLocation": "1023:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 4980,
+                "src": "1015:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4978,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1015:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BattleRequest",
+            "nameLocation": "943:13:27",
+            "nodeType": "StructDefinition",
+            "scope": 5237,
+            "src": "936:100:27",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8d7c3ec7",
+            "id": 4984,
+            "mutability": "mutable",
+            "name": "battleRequests",
+            "nameLocation": "1111:14:27",
+            "nodeType": "VariableDeclaration",
+            "scope": 5237,
+            "src": "1088:37:27",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+              "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 4982,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 4981,
+                  "name": "BattleRequest",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 4980,
+                  "src": "1088:13:27"
+                },
+                "referencedDeclaration": 4980,
+                "src": "1088:13:27",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_BattleRequest_$4980_storage_ptr",
+                  "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                }
+              },
+              "id": 4983,
+              "nodeType": "ArrayTypeName",
+              "src": "1088:15:27",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr",
+                "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest[]"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 4992,
+            "name": "StakedForBattle",
+            "nameLocation": "1193:15:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 4991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4986,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "pepeId",
+                  "nameLocation": "1225:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4992,
+                  "src": "1209:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4985,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1209:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4988,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1241:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4992,
+                  "src": "1233:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4987,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1233:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4990,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "player",
+                  "nameLocation": "1265:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4992,
+                  "src": "1249:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4989,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1249:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1208:64:27"
+            },
+            "src": "1187:86:27"
+          },
+          {
+            "anonymous": false,
+            "id": 5004,
+            "name": "BattleOutcome",
+            "nameLocation": "1284:13:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5003,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4994,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "player1",
+                  "nameLocation": "1314:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5004,
+                  "src": "1298:23:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4993,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1298:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4996,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "player2",
+                  "nameLocation": "1339:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5004,
+                  "src": "1323:23:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4995,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4998,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "pepe1Id",
+                  "nameLocation": "1356:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5004,
+                  "src": "1348:15:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4997,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1348:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5000,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "pepe2Id",
+                  "nameLocation": "1373:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5004,
+                  "src": "1365:15:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4999,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1365:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5002,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "winnerId",
+                  "nameLocation": "1390:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5004,
+                  "src": "1382:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5001,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1382:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1297:102:27"
+            },
+            "src": "1278:122:27"
+          },
+          {
+            "anonymous": false,
+            "id": 5012,
+            "name": "Transfer",
+            "nameLocation": "1411:8:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5011,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5006,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "1436:4:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5012,
+                  "src": "1420:20:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5005,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1420:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5008,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "1458:2:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5012,
+                  "src": "1442:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5007,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1442:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5010,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1470:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5012,
+                  "src": "1462:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5009,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1462:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1419:58:27"
+            },
+            "src": "1405:73:27"
+          },
+          {
+            "body": {
+              "id": 5031,
+              "nodeType": "Block",
+              "src": "1534:97:27",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 5023,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 5019,
+                      "name": "pepeNFT",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4970,
+                      "src": "1544:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                        "typeString": "contract IPepesOfTheGalaxyNFT"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 5021,
+                          "name": "_pepeNFT",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5014,
+                          "src": "1575:8:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 5020,
+                        "name": "IPepesOfTheGalaxyNFT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4965,
+                        "src": "1554:20:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IPepesOfTheGalaxyNFT_$4965_$",
+                          "typeString": "type(contract IPepesOfTheGalaxyNFT)"
+                        }
+                      },
+                      "id": 5022,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1554:30:27",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                        "typeString": "contract IPepesOfTheGalaxyNFT"
+                      }
+                    },
+                    "src": "1544:40:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                      "typeString": "contract IPepesOfTheGalaxyNFT"
+                    }
+                  },
+                  "id": 5024,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1544:40:27"
+                },
+                {
+                  "expression": {
+                    "id": 5029,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 5025,
+                      "name": "pepeToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4973,
+                      "src": "1594:9:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1259",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 5027,
+                          "name": "_pepeToken",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5016,
+                          "src": "1613:10:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 5026,
+                        "name": "IERC20",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1259,
+                        "src": "1606:6:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IERC20_$1259_$",
+                          "typeString": "type(contract IERC20)"
+                        }
+                      },
+                      "id": 5028,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1606:18:27",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$1259",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "1594:30:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1259",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 5030,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1594:30:27"
+                }
+              ]
+            },
+            "id": 5032,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5017,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5014,
+                  "mutability": "mutable",
+                  "name": "_pepeNFT",
+                  "nameLocation": "1504:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5032,
+                  "src": "1496:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5013,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1496:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5016,
+                  "mutability": "mutable",
+                  "name": "_pepeToken",
+                  "nameLocation": "1522:10:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5032,
+                  "src": "1514:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5015,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1514:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1495:38:27"
+            },
+            "returnParameters": {
+              "id": 5018,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1534:0:27"
+            },
+            "scope": 5237,
+            "src": "1484:147:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 5089,
+              "nodeType": "Block",
+              "src": "1748:401:27",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "expression": {
+                              "id": 5042,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967281,
+                              "src": "1825:3:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 5043,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "src": "1825:10:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "arguments": [
+                              {
+                                "id": 5046,
+                                "name": "this",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4294967268,
+                                "src": "1845:4:27",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_PepesOfTheGalaxyBattle_$5237",
+                                  "typeString": "contract PepesOfTheGalaxyBattle"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_PepesOfTheGalaxyBattle_$5237",
+                                  "typeString": "contract PepesOfTheGalaxyBattle"
+                                }
+                              ],
+                              "id": 5045,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "nodeType": "ElementaryTypeNameExpression",
+                              "src": "1837:7:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_address_$",
+                                "typeString": "type(address)"
+                              },
+                              "typeName": {
+                                "id": 5044,
+                                "name": "address",
+                                "nodeType": "ElementaryTypeName",
+                                "src": "1837:7:27",
+                                "typeDescriptions": {}
+                              }
+                            },
+                            "id": 5047,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "typeConversion",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1837:13:27",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "id": 5048,
+                            "name": "_amount",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5036,
+                            "src": "1852:7:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 5040,
+                            "name": "pepeToken",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4973,
+                            "src": "1802:9:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IERC20_$1259",
+                              "typeString": "contract IERC20"
+                            }
+                          },
+                          "id": 5041,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "transferFrom",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 1258,
+                          "src": "1802:22:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (address,address,uint256) external returns (bool)"
+                          }
+                        },
+                        "id": 5049,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1802:58:27",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "546f6b656e207472616e73666572206661696c6564",
+                        "id": 5050,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1862:23:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                          "typeString": "literal_string \"Token transfer failed\""
+                        },
+                        "value": "Token transfer failed"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                          "typeString": "literal_string \"Token transfer failed\""
+                        }
+                      ],
+                      "id": 5039,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "1794:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 5051,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1794:92:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5052,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1794:92:27"
+                },
+                {
+                  "assignments": [
+                    5055
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5055,
+                      "mutability": "mutable",
+                      "name": "newRequest",
+                      "nameLocation": "1940:10:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5089,
+                      "src": "1919:31:27",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                      },
+                      "typeName": {
+                        "id": 5054,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 5053,
+                          "name": "BattleRequest",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 4980,
+                          "src": "1919:13:27"
+                        },
+                        "referencedDeclaration": 4980,
+                        "src": "1919:13:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_storage_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5056,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1919:31:27"
+                },
+                {
+                  "expression": {
+                    "id": 5061,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 5057,
+                        "name": "newRequest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5055,
+                        "src": "1956:10:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                        }
+                      },
+                      "id": 5059,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pepeId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4975,
+                      "src": "1956:17:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 5060,
+                      "name": "_pepeId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5034,
+                      "src": "1976:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1956:27:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 5062,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1956:27:27"
+                },
+                {
+                  "expression": {
+                    "id": 5067,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 5063,
+                        "name": "newRequest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5055,
+                        "src": "1989:10:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                        }
+                      },
+                      "id": 5065,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "amount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4977,
+                      "src": "1989:17:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 5066,
+                      "name": "_amount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5036,
+                      "src": "2009:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1989:27:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 5068,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1989:27:27"
+                },
+                {
+                  "expression": {
+                    "id": 5074,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 5069,
+                        "name": "newRequest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5055,
+                        "src": "2022:10:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                        }
+                      },
+                      "id": 5071,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "player",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4979,
+                      "src": "2022:17:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 5072,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4294967281,
+                        "src": "2042:3:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 5073,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "2042:10:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "2022:30:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 5075,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2022:30:27"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 5079,
+                        "name": "newRequest",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5055,
+                        "src": "2078:10:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 5076,
+                        "name": "battleRequests",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4984,
+                        "src": "2058:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                        }
+                      },
+                      "id": 5078,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "2058:19:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$_t_struct$_BattleRequest_$4980_storage_$returns$__$bound_to$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage pointer,struct PepesOfTheGalaxyBattle.BattleRequest storage ref)"
+                      }
+                    },
+                    "id": 5080,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2058:31:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5081,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2058:31:27"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 5083,
+                        "name": "_pepeId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5034,
+                        "src": "2117:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 5084,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5036,
+                        "src": "2126:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 5085,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967281,
+                          "src": "2135:3:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 5086,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "2135:10:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 5082,
+                      "name": "StakedForBattle",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4992,
+                      "src": "2101:15:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_address_$returns$__$",
+                        "typeString": "function (uint256,uint256,address)"
+                      }
+                    },
+                    "id": 5087,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2101:45:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5088,
+                  "nodeType": "EmitStatement",
+                  "src": "2096:50:27"
+                }
+              ]
+            },
+            "functionSelector": "7b0472f0",
+            "id": 5090,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "stake",
+            "nameLocation": "1701:5:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5037,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5034,
+                  "mutability": "mutable",
+                  "name": "_pepeId",
+                  "nameLocation": "1715:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5090,
+                  "src": "1707:15:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5033,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1707:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5036,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "1732:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5090,
+                  "src": "1724:15:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5035,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1724:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1706:34:27"
+            },
+            "returnParameters": {
+              "id": 5038,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1748:0:27"
+            },
+            "scope": 5237,
+            "src": "1692:457:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 5235,
+              "nodeType": "Block",
+              "src": "2213:1388:27",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 5099,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 5096,
+                            "name": "battleRequests",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4984,
+                            "src": "2231:14:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                              "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                            }
+                          },
+                          "id": 5097,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "src": "2231:21:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">=",
+                        "rightExpression": {
+                          "hexValue": "32",
+                          "id": 5098,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "2256:1:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_2_by_1",
+                            "typeString": "int_const 2"
+                          },
+                          "value": "2"
+                        },
+                        "src": "2231:26:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4e6f7420656e6f75676820706c6179657273",
+                        "id": 5100,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2259:20:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_543cde6d57481e61eff19dce080efaaf31452fee1732d8dfc4ed801d034e0f39",
+                          "typeString": "literal_string \"Not enough players\""
+                        },
+                        "value": "Not enough players"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_543cde6d57481e61eff19dce080efaaf31452fee1732d8dfc4ed801d034e0f39",
+                          "typeString": "literal_string \"Not enough players\""
+                        }
+                      ],
+                      "id": 5095,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "2223:7:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 5101,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2223:57:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5102,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2223:57:27"
+                },
+                {
+                  "assignments": [
+                    5105
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5105,
+                      "mutability": "mutable",
+                      "name": "player1",
+                      "nameLocation": "2349:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2328:28:27",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                      },
+                      "typeName": {
+                        "id": 5104,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 5103,
+                          "name": "BattleRequest",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 4980,
+                          "src": "2328:13:27"
+                        },
+                        "referencedDeclaration": 4980,
+                        "src": "2328:13:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_storage_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5109,
+                  "initialValue": {
+                    "baseExpression": {
+                      "id": 5106,
+                      "name": "battleRequests",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4984,
+                      "src": "2359:14:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                      }
+                    },
+                    "id": 5108,
+                    "indexExpression": {
+                      "hexValue": "30",
+                      "id": 5107,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2374:1:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "2359:17:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_BattleRequest_$4980_storage",
+                      "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2328:48:27"
+                },
+                {
+                  "assignments": [
+                    5112
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5112,
+                      "mutability": "mutable",
+                      "name": "player2",
+                      "nameLocation": "2407:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2386:28:27",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                      },
+                      "typeName": {
+                        "id": 5111,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 5110,
+                          "name": "BattleRequest",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 4980,
+                          "src": "2386:13:27"
+                        },
+                        "referencedDeclaration": 4980,
+                        "src": "2386:13:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_BattleRequest_$4980_storage_ptr",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5116,
+                  "initialValue": {
+                    "baseExpression": {
+                      "id": 5113,
+                      "name": "battleRequests",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4984,
+                      "src": "2417:14:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                      }
+                    },
+                    "id": 5115,
+                    "indexExpression": {
+                      "hexValue": "31",
+                      "id": 5114,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2432:1:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "2417:17:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_BattleRequest_$4980_storage",
+                      "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2386:48:27"
+                },
+                {
+                  "assignments": [
+                    5118,
+                    5120
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5118,
+                      "mutability": "mutable",
+                      "name": "p1Attr1",
+                      "nameLocation": "2501:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2493:15:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 5117,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2493:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 5120,
+                      "mutability": "mutable",
+                      "name": "p1Attr2",
+                      "nameLocation": "2518:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2510:15:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 5119,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2510:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5126,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 5123,
+                          "name": "player1",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5105,
+                          "src": "2555:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5124,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pepeId",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4975,
+                        "src": "2555:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 5121,
+                        "name": "pepeNFT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4970,
+                        "src": "2529:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                          "typeString": "contract IPepesOfTheGalaxyNFT"
+                        }
+                      },
+                      "id": 5122,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getPepeAttributes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4957,
+                      "src": "2529:25:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
+                        "typeString": "function (uint256) view external returns (uint256,uint256)"
+                      }
+                    },
+                    "id": 5125,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2529:41:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                      "typeString": "tuple(uint256,uint256)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2492:78:27"
+                },
+                {
+                  "assignments": [
+                    5128,
+                    5130
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5128,
+                      "mutability": "mutable",
+                      "name": "p2Attr1",
+                      "nameLocation": "2589:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2581:15:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 5127,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2581:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 5130,
+                      "mutability": "mutable",
+                      "name": "p2Attr2",
+                      "nameLocation": "2606:7:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2598:15:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 5129,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2598:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5136,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 5133,
+                          "name": "player2",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5112,
+                          "src": "2643:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5134,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pepeId",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4975,
+                        "src": "2643:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 5131,
+                        "name": "pepeNFT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4970,
+                        "src": "2617:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IPepesOfTheGalaxyNFT_$4965",
+                          "typeString": "contract IPepesOfTheGalaxyNFT"
+                        }
+                      },
+                      "id": 5132,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getPepeAttributes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4957,
+                      "src": "2617:25:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_uint256_$returns$_t_uint256_$_t_uint256_$",
+                        "typeString": "function (uint256) view external returns (uint256,uint256)"
+                      }
+                    },
+                    "id": 5135,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2617:41:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                      "typeString": "tuple(uint256,uint256)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2580:78:27"
+                },
+                {
+                  "assignments": [
+                    5138
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5138,
+                      "mutability": "mutable",
+                      "name": "winnerId",
+                      "nameLocation": "2709:8:27",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5235,
+                      "src": "2701:16:27",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 5137,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2701:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5139,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2701:16:27"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 5146,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 5142,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "id": 5140,
+                        "name": "p1Attr1",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5118,
+                        "src": "2731:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "+",
+                      "rightExpression": {
+                        "id": 5141,
+                        "name": "p1Attr2",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5120,
+                        "src": "2741:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "2731:17:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 5145,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "id": 5143,
+                        "name": "p2Attr1",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5128,
+                        "src": "2751:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "+",
+                      "rightExpression": {
+                        "id": 5144,
+                        "name": "p2Attr2",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5130,
+                        "src": "2761:7:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "src": "2751:17:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2731:37:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 5186,
+                    "nodeType": "Block",
+                    "src": "2997:221:27",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 5170,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 5167,
+                            "name": "winnerId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5138,
+                            "src": "3011:8:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "expression": {
+                              "id": 5168,
+                              "name": "player2",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5112,
+                              "src": "3022:7:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                              }
+                            },
+                            "id": 5169,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "pepeId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 4975,
+                            "src": "3022:14:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "3011:25:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 5171,
+                        "nodeType": "ExpressionStatement",
+                        "src": "3011:25:27"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "expression": {
+                                    "id": 5175,
+                                    "name": "player2",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 5112,
+                                    "src": "3133:7:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                      "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                    }
+                                  },
+                                  "id": 5176,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "player",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 4979,
+                                  "src": "3133:14:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                {
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "id": 5181,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "leftExpression": {
+                                    "expression": {
+                                      "id": 5177,
+                                      "name": "player1",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 5105,
+                                      "src": "3149:7:27",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                      }
+                                    },
+                                    "id": 5178,
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "memberName": "amount",
+                                    "nodeType": "MemberAccess",
+                                    "referencedDeclaration": 4977,
+                                    "src": "3149:14:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "nodeType": "BinaryOperation",
+                                  "operator": "+",
+                                  "rightExpression": {
+                                    "expression": {
+                                      "id": 5179,
+                                      "name": "player2",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 5112,
+                                      "src": "3166:7:27",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                      }
+                                    },
+                                    "id": 5180,
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "memberName": "amount",
+                                    "nodeType": "MemberAccess",
+                                    "referencedDeclaration": 4977,
+                                    "src": "3166:14:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "src": "3149:31:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "expression": {
+                                  "id": 5173,
+                                  "name": "pepeToken",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 4973,
+                                  "src": "3114:9:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_contract$_IERC20_$1259",
+                                    "typeString": "contract IERC20"
+                                  }
+                                },
+                                "id": 5174,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "transfer",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 1226,
+                                "src": "3114:18:27",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                                  "typeString": "function (address,uint256) external returns (bool)"
+                                }
+                              },
+                              "id": 5182,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "3114:67:27",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            {
+                              "hexValue": "546f6b656e207472616e73666572206661696c6564",
+                              "id": 5183,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "3183:23:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                                "typeString": "literal_string \"Token transfer failed\""
+                              },
+                              "value": "Token transfer failed"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                                "typeString": "literal_string \"Token transfer failed\""
+                              }
+                            ],
+                            "id": 5172,
+                            "name": "require",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              4294967278,
+                              4294967278
+                            ],
+                            "referencedDeclaration": 4294967278,
+                            "src": "3106:7:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,string memory) pure"
+                            }
+                          },
+                          "id": 5184,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "3106:101:27",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 5185,
+                        "nodeType": "ExpressionStatement",
+                        "src": "3106:101:27"
+                      }
+                    ]
+                  },
+                  "id": 5187,
+                  "nodeType": "IfStatement",
+                  "src": "2727:491:27",
+                  "trueBody": {
+                    "id": 5166,
+                    "nodeType": "Block",
+                    "src": "2770:221:27",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 5150,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 5147,
+                            "name": "winnerId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5138,
+                            "src": "2784:8:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "expression": {
+                              "id": 5148,
+                              "name": "player1",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5105,
+                              "src": "2795:7:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                              }
+                            },
+                            "id": 5149,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "pepeId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 4975,
+                            "src": "2795:14:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "2784:25:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 5151,
+                        "nodeType": "ExpressionStatement",
+                        "src": "2784:25:27"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "expression": {
+                                    "id": 5155,
+                                    "name": "player1",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 5105,
+                                    "src": "2906:7:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                      "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                    }
+                                  },
+                                  "id": 5156,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "player",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 4979,
+                                  "src": "2906:14:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                {
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "id": 5161,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "leftExpression": {
+                                    "expression": {
+                                      "id": 5157,
+                                      "name": "player1",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 5105,
+                                      "src": "2922:7:27",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                      }
+                                    },
+                                    "id": 5158,
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "memberName": "amount",
+                                    "nodeType": "MemberAccess",
+                                    "referencedDeclaration": 4977,
+                                    "src": "2922:14:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "nodeType": "BinaryOperation",
+                                  "operator": "+",
+                                  "rightExpression": {
+                                    "expression": {
+                                      "id": 5159,
+                                      "name": "player2",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 5112,
+                                      "src": "2939:7:27",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                                        "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                                      }
+                                    },
+                                    "id": 5160,
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "memberName": "amount",
+                                    "nodeType": "MemberAccess",
+                                    "referencedDeclaration": 4977,
+                                    "src": "2939:14:27",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "src": "2922:31:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "expression": {
+                                  "id": 5153,
+                                  "name": "pepeToken",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 4973,
+                                  "src": "2887:9:27",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_contract$_IERC20_$1259",
+                                    "typeString": "contract IERC20"
+                                  }
+                                },
+                                "id": 5154,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "transfer",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 1226,
+                                "src": "2887:18:27",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                                  "typeString": "function (address,uint256) external returns (bool)"
+                                }
+                              },
+                              "id": 5162,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2887:67:27",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            {
+                              "hexValue": "546f6b656e207472616e73666572206661696c6564",
+                              "id": 5163,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "2956:23:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                                "typeString": "literal_string \"Token transfer failed\""
+                              },
+                              "value": "Token transfer failed"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_stringliteral_74c7d57a908ebeca4ca501d4682067d5006fafb2a418959e98aa45be0419cba4",
+                                "typeString": "literal_string \"Token transfer failed\""
+                              }
+                            ],
+                            "id": 5152,
+                            "name": "require",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              4294967278,
+                              4294967278
+                            ],
+                            "referencedDeclaration": 4294967278,
+                            "src": "2879:7:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,string memory) pure"
+                            }
+                          },
+                          "id": 5164,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "2879:101:27",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 5165,
+                        "nodeType": "ExpressionStatement",
+                        "src": "2879:101:27"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 5189,
+                          "name": "player1",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5105,
+                          "src": "3280:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5190,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "player",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4979,
+                        "src": "3280:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 5191,
+                          "name": "player2",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5112,
+                          "src": "3296:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5192,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "player",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4979,
+                        "src": "3296:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 5193,
+                          "name": "player1",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5105,
+                          "src": "3312:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5194,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pepeId",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4975,
+                        "src": "3312:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 5195,
+                          "name": "player2",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 5112,
+                          "src": "3328:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_memory_ptr",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest memory"
+                          }
+                        },
+                        "id": 5196,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "pepeId",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4975,
+                        "src": "3328:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 5197,
+                        "name": "winnerId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5138,
+                        "src": "3344:8:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 5188,
+                      "name": "BattleOutcome",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5004,
+                      "src": "3266:13:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 5198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3266:87:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5199,
+                  "nodeType": "EmitStatement",
+                  "src": "3261:92:27"
+                },
+                {
+                  "body": {
+                    "id": 5223,
+                    "nodeType": "Block",
+                    "src": "3469:66:27",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 5221,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "baseExpression": {
+                              "id": 5213,
+                              "name": "battleRequests",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4984,
+                              "src": "3483:14:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                                "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                              }
+                            },
+                            "id": 5215,
+                            "indexExpression": {
+                              "id": 5214,
+                              "name": "i",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5201,
+                              "src": "3498:1:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "nodeType": "IndexAccess",
+                            "src": "3483:17:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_BattleRequest_$4980_storage",
+                              "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "baseExpression": {
+                              "id": 5216,
+                              "name": "battleRequests",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4984,
+                              "src": "3503:14:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                                "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                              }
+                            },
+                            "id": 5220,
+                            "indexExpression": {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "id": 5219,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "leftExpression": {
+                                "id": 5217,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 5201,
+                                "src": "3518:1:27",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "nodeType": "BinaryOperation",
+                              "operator": "+",
+                              "rightExpression": {
+                                "hexValue": "32",
+                                "id": 5218,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "number",
+                                "lValueRequested": false,
+                                "nodeType": "Literal",
+                                "src": "3522:1:27",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_rational_2_by_1",
+                                  "typeString": "int_const 2"
+                                },
+                                "value": "2"
+                              },
+                              "src": "3518:5:27",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "3503:21:27",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_BattleRequest_$4980_storage",
+                              "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref"
+                            }
+                          },
+                          "src": "3483:41:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_BattleRequest_$4980_storage",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref"
+                          }
+                        },
+                        "id": 5222,
+                        "nodeType": "ExpressionStatement",
+                        "src": "3483:41:27"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 5209,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 5204,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5201,
+                      "src": "3433:1:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 5208,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "expression": {
+                          "id": 5205,
+                          "name": "battleRequests",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4984,
+                          "src": "3437:14:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                            "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                          }
+                        },
+                        "id": 5206,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "length",
+                        "nodeType": "MemberAccess",
+                        "src": "3437:21:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "-",
+                      "rightExpression": {
+                        "hexValue": "32",
+                        "id": 5207,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "3461:1:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_2_by_1",
+                          "typeString": "int_const 2"
+                        },
+                        "value": "2"
+                      },
+                      "src": "3437:25:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "3433:29:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 5224,
+                  "initializationExpression": {
+                    "assignments": [
+                      5201
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 5201,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nameLocation": "3426:1:27",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 5224,
+                        "src": "3418:9:27",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 5200,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3418:7:27",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 5203,
+                    "initialValue": {
+                      "hexValue": "30",
+                      "id": 5202,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "3430:1:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "3418:13:27"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 5211,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "3464:3:27",
+                      "subExpression": {
+                        "id": 5210,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5201,
+                        "src": "3464:1:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 5212,
+                    "nodeType": "ExpressionStatement",
+                    "src": "3464:3:27"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "3413:122:27"
+                },
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "id": 5225,
+                        "name": "battleRequests",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4984,
+                        "src": "3544:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                        }
+                      },
+                      "id": 5227,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pop",
+                      "nodeType": "MemberAccess",
+                      "src": "3544:18:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$returns$__$bound_to$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage pointer)"
+                      }
+                    },
+                    "id": 5228,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3544:20:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5229,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3544:20:27"
+                },
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "id": 5230,
+                        "name": "battleRequests",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4984,
+                        "src": "3574:14:27",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage",
+                          "typeString": "struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage ref"
+                        }
+                      },
+                      "id": 5232,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "pop",
+                      "nodeType": "MemberAccess",
+                      "src": "3574:18:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$returns$__$bound_to$_t_array$_t_struct$_BattleRequest_$4980_storage_$dyn_storage_ptr_$",
+                        "typeString": "function (struct PepesOfTheGalaxyBattle.BattleRequest storage ref[] storage pointer)"
+                      }
+                    },
+                    "id": 5233,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3574:20:27",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 5234,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3574:20:27"
+                }
+              ]
+            },
+            "functionSelector": "44e44545",
+            "id": 5236,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 5093,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 5092,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 420,
+                  "src": "2203:9:27"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2203:9:27"
+              }
+            ],
+            "name": "battle",
+            "nameLocation": "2187:6:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5091,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2193:2:27"
+            },
+            "returnParameters": {
+              "id": 5094,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2213:0:27"
+            },
+            "scope": 5237,
+            "src": "2178:1423:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 5238,
+        "src": "664:2939:27",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:3572:27"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.14",
+  "updatedAt": "2023-06-04T07:42:44.571Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
