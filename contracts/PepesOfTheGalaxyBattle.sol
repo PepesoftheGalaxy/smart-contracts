@@ -36,8 +36,14 @@ contract PepesOfTheGalaxyBattle is Ownable {
         pepeToken = IERC20(_pepeToken);
     }
 
-  // Stake a specific amount of tokens with a specific NFT
+// Stake a specific amount of tokens with a specific NFT
 function stake(uint256 _pepeId, uint256 _amount) public {
+    // Check the player's balance
+    require(pepeToken.balanceOf(msg.sender) >= _amount, "Insufficient balance");
+
+    // Check the player's allowance for the battle contract
+    require(pepeToken.allowance(msg.sender, address(this)) >= _amount, "Insufficient allowance");
+
     // Transfer tokens to this contract
     require(pepeToken.transferFrom(msg.sender, address(this), _amount), "Token transfer failed");
 
@@ -49,10 +55,14 @@ function stake(uint256 _pepeId, uint256 _amount) public {
     battleRequests.push(newRequest);
 
     emit StakedForBattle(_pepeId, _amount, msg.sender);
-}
 
+    // Automatically start a battle if there are at least two players
+    if (battleRequests.length >= 2) {
+        battle();
+    }
+}
     // Battle function
-function battle() public onlyOwner {
+function battle() public {
     require(battleRequests.length >= 2, "Not enough players");
 
     // Get the first two players

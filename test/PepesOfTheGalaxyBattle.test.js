@@ -40,6 +40,10 @@ describe("PepesOfTheGalaxyBattle", function () {
         await pepeNFT.connect(addr1).mintPepe(addr1.address, "uri1", 5, 5, {value: ethers.utils.parseEther("0.05")});
         await pepeNFT.connect(addr2).mintPepe(addr2.address, "uri2", 15, 25, {value: ethers.utils.parseEther("0.05")});
         await pepeNFT.grantRole(pepeNFT.EXPERIENCE_UPDATER_ROLE(), battleContract.address);
+
+        // Approve a higher allowance for the battle contract
+        const higherAllowance = ethers.utils.parseEther('1000');
+        await pepeToken.connect(addr1).approve(battleContract.address, higherAllowance);
     });            
 
     it("Should add a stake", async function () {
@@ -63,4 +67,46 @@ describe("PepesOfTheGalaxyBattle", function () {
         await battleContract.connect(addr2).stake(2, ethers.utils.parseEther("10"));
         await battleContract.connect(owner).battle();
     });
+
+    it("Should revert when staking more tokens than the player's balance", async function () {
+        // Attempt to stake an amount greater than the player's token balance
+        const tooLargeStake = ethers.utils.parseEther("1000000000000000000001");  // Assume this is larger than the player's balance
+    
+        // Expect the transaction to be reverted with a specific error message (replace "Error message" with the actual error message)
+        await expect(battleContract.connect(addr1).stake(1, tooLargeStake)).to.be.revertedWith("Insufficient balance");
+    });    
+    
+    it("Should start a battle with three stakes", async function () {
+        await pepeToken.connect(addr1).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(addr1).stake(1, ethers.utils.parseEther("10"));
+        await pepeToken.connect(addr2).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(addr2).stake(2, ethers.utils.parseEther("10"));
+        await pepeToken.connect(owner).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(owner).stake(3, ethers.utils.parseEther("10"));
+        await battleContract.connect(owner).battle();
+        // Additional assertions to check the battle outcome
+    });
+    
+    it("Should start multiple battles", async function () {
+        // Mint the required NFTs
+        await pepeNFT.connect(owner).mintPepe(owner.address, "uri3", 10, 20, { value: ethers.utils.parseEther("0.05") });
+        await pepeNFT.connect(addr1).mintPepe(addr1.address, "uri4", 8, 15, { value: ethers.utils.parseEther("0.05") });
+        
+        await pepeToken.connect(addr1).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(addr1).stake(1, ethers.utils.parseEther("10"));
+        await pepeToken.connect(addr2).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(addr2).stake(2, ethers.utils.parseEther("10"));
+        
+        await battleContract.connect(owner).battle();
+        
+        await pepeToken.connect(owner).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(owner).stake(3, ethers.utils.parseEther("10"));
+        await pepeToken.connect(addr1).approve(battleContract.address, ethers.utils.parseEther("10"));
+        await battleContract.connect(addr1).stake(4, ethers.utils.parseEther("10"));
+        
+        await battleContract.connect(owner).battle();
+        // Additional assertions to check the battle outcomes
+    });
+    
+    
 });
