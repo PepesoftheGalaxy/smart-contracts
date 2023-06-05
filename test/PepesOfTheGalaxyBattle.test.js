@@ -69,19 +69,75 @@ describe("PepesOfTheGalaxyBattle", function () {
     await expect(battleContract.connect(addr1).stake(1, tooLargeStake)).to.be.revertedWith("Insufficient balance");
   });
 
-  it("Should start a battle with two stakes", async function () {
-    await pepeToken.connect(addr1).approve(battleContract.address, ethers.utils.parseEther("10"));
-    await battleContract.connect(addr1).stake(1, ethers.utils.parseEther("10"));
+  it("Should transfer all staked tokens to the winner", async function () {
+    const stakeAmount1 = ethers.utils.parseEther("150");
+    const stakeAmount2 = ethers.utils.parseEther("20");
   
-    await pepeToken.connect(addr2).approve(battleContract.address, ethers.utils.parseEther("10"));
-    await battleContract.connect(addr2).stake(2, ethers.utils.parseEther("10"));
+    // Check initial balances before staking
+    const initialBalanceBeforeStaking1 = await pepeToken.balanceOf(addr1.address);
+    const initialBalanceBeforeStaking2 = await pepeToken.balanceOf(addr2.address);
+    
+    // Calculate the sum of starting balances
+    const totalInitialBalance = initialBalanceBeforeStaking1.add(initialBalanceBeforeStaking2);
   
-    // Ensure that two players have staked their tokens
-    expect(await battleContract.numPlayers()).to.equal(2);
+    console.log(`Initial balance of addr1 before staking: ${ethers.utils.formatEther(initialBalanceBeforeStaking1)}`);
+    console.log(`Initial balance of addr2 before staking: ${ethers.utils.formatEther(initialBalanceBeforeStaking2)}`);
   
-    // Check the battleRequests array for the battle outcome
-    // Use the quote() function on battleContract.battleRequests(0) and battleContract.battleRequests(1)
-    // to assert the outcome of the battle (winner, loser, transferred amounts, etc.)
+    await pepeToken.connect(addr1).approve(battleContract.address, stakeAmount1);
+    await battleContract.connect(addr1).stake(1, stakeAmount1);
+  
+    // Log the contract balance after the first staking
+    let contractBalance = await pepeToken.balanceOf(battleContract.address);
+    console.log(`Contract balance after first staking: ${ethers.utils.formatEther(contractBalance)}`);
+  
+    await pepeToken.connect(addr2).approve(battleContract.address, stakeAmount2);
+    await battleContract.connect(addr2).stake(2, stakeAmount2);
+  
+    // Log the contract balance after the second staking
+    contractBalance = await pepeToken.balanceOf(battleContract.address);
+    console.log(`Contract balance after second staking: ${ethers.utils.formatEther(contractBalance)}`);
+  
+    const totalStake = stakeAmount1.add(stakeAmount2);
+  
+    // Assuming battle happens automatically after 2 stakes, otherwise trigger it manually
+    // await battleContract.battle();
+  
+    /// ...
+  
+    // Calculate final balances
+    const finalBalance1 = await pepeToken.balanceOf(addr1.address);
+    const finalBalance2 = await pepeToken.balanceOf(addr2.address);
+  
+    console.log(`Final balance of addr1: ${ethers.utils.formatEther(finalBalance1)}`);
+    console.log(`Final balance of addr2: ${ethers.utils.formatEther(finalBalance2)}`);
+  
+    // Check if the winner got all the staked tokens
+    if (finalBalance1.gt(initialBalanceBeforeStaking1)) {
+      console.log(`Winner is addr1 with pepeId: 1`);
+      expect(finalBalance1).to.equal(initialBalanceBeforeStaking1.add(stakeAmount2)); // The winner (addr1) balance increased by the stake amount of addr2
+    } else {
+      console.log(`Winner is addr2 with pepeId: 2`);
+      expect(finalBalance2).to.equal(initialBalanceBeforeStaking2.add(stakeAmount1)); // The winner (addr2) balance increased by the stake amount of addr1
+    }
+  
+    // Calculate the sum of final balances
+    const totalFinalBalance = finalBalance1.add(finalBalance2);
+  
+    // Check if the sum of the starting balances equals the sum of the ending balances
+    expect(totalInitialBalance).to.equal(totalFinalBalance);
+  
+    // Log the contract balance after the battle
+    contractBalance = await pepeToken.balanceOf(battleContract.address);
+    console.log(`Contract balance after battle: ${ethers.utils.formatEther(contractBalance)}`);
+  
+    // Assert that contract balance is zero after the battle
+    expect(contractBalance).to.equal(0);
   });
+  
+  
+
+
+
+
 
 });

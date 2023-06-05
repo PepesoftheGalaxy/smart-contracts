@@ -30,6 +30,7 @@ contract PepesOfTheGalaxyBattle is Ownable {
     event StakedForBattle(uint256 indexed pepeId, uint256 amount, address indexed player);
     event BattleOutcome(address indexed player1, address indexed player2, uint256 pepe1Id, uint256 pepe2Id, uint256 winnerId);
     event Transfer(address indexed from, address indexed to, uint256 amount);
+    event TransferSucceeded(bool success);
 
     constructor(address _pepeNFT, address _pepeToken) {
         pepeNFT = IPepesOfTheGalaxyNFT(_pepeNFT);
@@ -64,57 +65,59 @@ contract PepesOfTheGalaxyBattle is Ownable {
 
     // Battle function
     function battle() public {
-        require(battleRequests.length >= 2, "Not enough players");
+    require(battleRequests.length >= 2, "Not enough players");
 
-        // Get the first two players
-        BattleRequest memory player1 = battleRequests[0];
-        BattleRequest memory player2 = battleRequests[1];
+    // Get the first two players
+    BattleRequest memory player1 = battleRequests[0];
+    BattleRequest memory player2 = battleRequests[1];
 
-        // Add some logging statements to check the values
-        emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, 0);
-        
-        // Get the attributes of the two pepes
-        (uint256 p1Attr1, uint256 p1Attr2) = pepeNFT.getPepeAttributes(player1.pepeId);
-        (uint256 p2Attr1, uint256 p2Attr2) = pepeNFT.getPepeAttributes(player2.pepeId);
+    // Get the attributes of the two pepes
+    (uint256 p1Attr1, uint256 p1Attr2) = pepeNFT.getPepeAttributes(player1.pepeId);
+    (uint256 p2Attr1, uint256 p2Attr2) = pepeNFT.getPepeAttributes(player2.pepeId);
 
-        // Calculate luck factor
-        uint256 randNonce = uint256(keccak256(abi.encodePacked(block.timestamp, player1.player, player1.pepeId, player2.pepeId)));
-        uint256 luckFactor = randNonce % 11;
-        p1Attr1 += luckFactor;
-        p2Attr1 += luckFactor;
+    // Calculate luck factor
+    uint256 randNonce = uint256(keccak256(abi.encodePacked(block.timestamp, player1.player, player1.pepeId, player2.pepeId)));
+    uint256 luckFactor = randNonce % 11;
+    p1Attr1 += luckFactor;
+    p2Attr1 += luckFactor;
 
-        // Determine the winner
-        uint256 winnerId;
-        if (p1Attr1 + p1Attr2 > p2Attr1 + p2Attr2) {
-            winnerId = player1.pepeId;
-            pepeToken.transfer(player1.player, player1.amount + player2.amount);
-            pepeNFT.addExperience(player1.pepeId, 2);
-            pepeNFT.addExperience(player2.pepeId, 1);
-        } else {
-            winnerId = player2.pepeId;
-            pepeToken.transfer(player2.player, player1.amount + player2.amount);
-            pepeNFT.addExperience(player2.pepeId, 2);
-            pepeNFT.addExperience(player1.pepeId, 1);
-        }
-
-        // Emit the battle outcome event
-        emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, winnerId);
-
-        // Remove the two players from the battle requests array
-        delete battleRequests[0];
-        delete battleRequests[1];
-
-        // Shift array to left by 2 positions
-        for (uint256 i = 0; i < battleRequests.length - 2; i++) {
-            battleRequests[i] = battleRequests[i + 2];
-        }
-
-        // Pop last 2 elements
-        if (battleRequests.length > 1) {
-            battleRequests.pop();
-            battleRequests.pop();
-        }
+    // Determine the winner
+    uint256 winnerId;
+    bool transferSucceeded;
+    if (p1Attr1 + p1Attr2 > p2Attr1 + p2Attr2) {
+        winnerId = player1.pepeId;
+        transferSucceeded = pepeToken.transfer(player1.player, player1.amount + player2.amount);
+        pepeNFT.addExperience(player1.pepeId, 2);
+        pepeNFT.addExperience(player2.pepeId, 1);
+    } else {
+        winnerId = player2.pepeId;
+        transferSucceeded = pepeToken.transfer(player2.player, player1.amount + player2.amount);
+        pepeNFT.addExperience(player2.pepeId, 2);
+        pepeNFT.addExperience(player1.pepeId, 1);
     }
+
+    // Emit the battle outcome event with the winner and their attributes
+    emit BattleOutcome(player1.player, player2.player, player1.pepeId, player2.pepeId, winnerId);
+
+    // Log the outcome of the transfer
+    emit TransferSucceeded(transferSucceeded);
+
+    // Remove the two players from the battle requests array
+    delete battleRequests[0];
+    delete battleRequests[1];
+
+    // Shift array to left by 2 positions
+    for (uint256 i = 0; i < battleRequests.length - 2; i++) {
+        battleRequests[i] = battleRequests[i + 2];
+    }
+
+    // Pop last 2 elements
+    if (battleRequests.length > 1) {
+        battleRequests.pop();
+        battleRequests.pop();
+    }
+  }
+
 
     function numPlayers() public view returns (uint256) {
         return battleRequests.length;
