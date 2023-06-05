@@ -37,8 +37,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyBattle.sol": {
-      "lastModificationDate": 1685935180262,
-      "contentHash": "966ec451a9a3330ddcb8ac93fc1b937d",
+      "lastModificationDate": 1685939102061,
+      "contentHash": "76b51b59d3d4335cac99637f13b2d591",
       "sourceName": "contracts/PepesOfTheGalaxyBattle.sol",
       "solcConfig": {
         "version": "0.8.7",

@@ -117,8 +117,6 @@ contract PepesOfTheGalaxyBattle is Ownable {
         battleRequests.pop();
     }
   }
-
-
     function numPlayers() public view returns (uint256) {
         return battleRequests.length;
     }
