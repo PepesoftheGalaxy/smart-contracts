@@ -70,7 +70,7 @@ describe("PepesOfTheGalaxyBattle", function () {
   });
 
   it("Should transfer all staked tokens to the winner", async function () {
-    const stakeAmount1 = ethers.utils.parseEther("150");
+    const stakeAmount1 = ethers.utils.parseEther("1500");
     const stakeAmount2 = ethers.utils.parseEther("20");
   
     // Check initial balances before staking
