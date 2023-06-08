@@ -47,19 +47,27 @@ describe("PepesOfTheGalaxyBattle", function () {
     await pepeToken.connect(addr1).approve(battleContract.address, higherAllowance);
   });
 
-  it("Should add a stake", async function () {
+  it("Should automatically start a battle when two players have staked", async function () {
+    // First player stakes
     await pepeToken.connect(addr1).approve(battleContract.address, ethers.utils.parseEther("10"));
     await battleContract.connect(addr1).stake(1, ethers.utils.parseEther("10"));
-    let battleRequest = await battleContract.battleRequests(0);
-    console.log("Battle Request:", battleRequest);
-    expect(battleRequest[0]).to.equal(1); // pepeId
-    expect(battleRequest[1]).to.equal(ethers.utils.parseEther("10")); // amount
-    expect(battleRequest[2]).to.equal(addr1.address); // player
-  });
 
-  it("Should not start a battle with fewer than two stakes", async function () {
-    await expect(battleContract.connect(owner).battle()).to.be.revertedWith("Not enough players");
-  });  
+    // Set up an event filter to look for the BattleOutcome event
+    const filter = battleContract.filters.BattleOutcome();
+
+    // Second player stakes, which should cause a battle to start
+    await pepeToken.connect(addr2).approve(battleContract.address, ethers.utils.parseEther("10"));
+    await battleContract.connect(addr2).stake(2, ethers.utils.parseEther("10"));
+
+    // Give it a moment for the event to be emitted
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Query the contract for the BattleOutcome events
+    const events = await battleContract.queryFilter(filter);
+
+    // Check that a BattleOutcome event was emitted
+    expect(events.length).to.equal(1);
+});
 
   it("Should revert when staking more tokens than the player's balance", async function () {
     // Attempt to stake an amount greater than the player's token balance
