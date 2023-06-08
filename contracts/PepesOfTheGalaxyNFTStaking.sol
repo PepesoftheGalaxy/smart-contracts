@@ -5,8 +5,9 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract PepesOfTheGalaxyNFTStaking is ReentrancyGuard {
+contract PepesOfTheGalaxyNFTStaking is ReentrancyGuard, Ownable {
     using SafeMath for uint256;
 
     struct StakeInfo {
@@ -58,6 +59,10 @@ contract PepesOfTheGalaxyNFTStaking is ReentrancyGuard {
         pepeToken.transfer(msg.sender, rewardAmount);
 
         emit Withdraw(msg.sender, block.timestamp, rewardAmount);
+    }
+
+        function setMinStakingTime(uint256 newMinStakingTime) external onlyOwner {
+        minStakingTime = newMinStakingTime;
     }
 
     function getRemainingStakeTime(address user) public view returns (uint256) {

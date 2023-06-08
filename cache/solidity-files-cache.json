@@ -957,8 +957,8 @@
       ]
     },
     "/Users/brendanplayford/token/contracts/PepesOfTheGalaxyNFTStaking.sol": {
-      "lastModificationDate": 1685858795004,
-      "contentHash": "aec0802868b2d51127b6078467096b3c",
+      "lastModificationDate": 1686196337594,
+      "contentHash": "f5fa87006682221fb685f2fb6a618af4",
       "sourceName": "contracts/PepesOfTheGalaxyNFTStaking.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -987,7 +987,8 @@
         "@openzeppelin/contracts/token/ERC721/IERC721.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol"
+        "@openzeppelin/contracts/utils/math/SafeMath.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
