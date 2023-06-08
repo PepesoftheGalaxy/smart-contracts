@@ -142,6 +142,17 @@ describe("PepesOfTheGalaxyBattle", function () {
     expect(contractBalance).to.equal(0);
   });
   
+  it("Should revert when a user with insufficient balance tries to stake", async function () {
+    // Try to stake more tokens than addr1 has
+    const excessiveAmount = ethers.utils.parseEther("100000"); // A very large number
+    await pepeToken.connect(addr1).approve(battleContract.address, excessiveAmount);
+
+    // Expect this to be reverted
+    await expect(
+        battleContract.connect(addr1).stake(1, excessiveAmount)
+    ).to.be.revertedWith("Insufficient balance");
+});
+
   
 
 
