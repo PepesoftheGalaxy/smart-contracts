@@ -31,6 +31,20 @@ module.exports = {
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true
+    },
+    baseMainnet: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://mainnet.base.org`),
+      network_id: 8453,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    baseTestnet: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.base.org`),
+      network_id: 84531,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     }
   },
   plugins: [
