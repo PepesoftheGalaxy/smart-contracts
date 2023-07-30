@@ -29,7 +29,7 @@ contract PepesOfTheGalaxyNFT is ERC721URIStorage, AccessControl {
     }
 
     function mintPepe(address player, string memory tokenURI, uint256 appearance, uint256 accessories) public payable returns (uint256) {
-        require(msg.value == 0.05 ether, "Minting a Pepe costs 50 MATIC");
+        require(msg.value == 0.05 ether, "Minting a Pepe costs 0.05 BNB");
         _tokenIds.increment();
         uint256 newPepeId = _tokenIds.current();
         _mint(player, newPepeId);
