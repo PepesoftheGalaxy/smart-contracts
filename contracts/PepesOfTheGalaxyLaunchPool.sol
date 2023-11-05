@@ -29,6 +29,13 @@ contract PepesOfTheGalaxyLaunchPool {
         // Calculate the staker's share of the PEPEOG tokens in the pool
         uint256 reward = token.balanceOf(address(this)) * stakes[msg.sender] / totalStaked;
 
+        // Apply a bonus based on the time staked using a bonding curve
+        // This is a simple example of a linear bonding curve
+        // We can replace this with any function that increases with time
+        uint256 timeStaked = block.timestamp - stakeTime[msg.sender];
+        uint256 bonus = reward * timeStaked / STAKING_PERIOD;
+        reward += bonus;
+
         // Update the staker's stake and the total staked amount
         stakes[msg.sender] = 0;
         totalStaked -= stakes[msg.sender];
