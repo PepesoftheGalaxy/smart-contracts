@@ -31,27 +31,30 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         stakeTime[msg.sender] = block.timestamp;
     }
 
-    function claim() public whenNotPaused nonReentrant {
-        require(block.timestamp >= stakeTime[msg.sender] + STAKING_PERIOD, "Staking period not yet over");
+function claimAndWithdraw() public whenNotPaused nonReentrant {
+    require(block.timestamp >= stakeTime[msg.sender] + STAKING_PERIOD, "Staking period not yet over");
 
-        uint256 userStake = stakes[msg.sender];
-        require(userStake > 0, "No stake to claim");
+    uint256 userStake = stakes[msg.sender];
+    require(userStake > 0, "No stake to claim");
 
-        // Calculate the staker's share of the PEP
-        uint256 reward = token.balanceOf(address(this)).mul(userStake).div(totalStaked);
+    // Calculate the staker's share of the PEP
+    uint256 reward = token.balanceOf(address(this)).mul(userStake).div(totalStaked);
 
-        // Apply a bonus based on the time staked using a bonding curve
-        uint256 timeStaked = block.timestamp.sub(stakeTime[msg.sender]);
-        uint256 bonus = reward.mul(timeStaked).div(STAKING_PERIOD);
-        reward = reward.add(bonus);
+    // Apply a bonus based on the time staked using a bonding curve
+    uint256 timeStaked = block.timestamp.sub(stakeTime[msg.sender]);
+    uint256 bonus = reward.mul(timeStaked).div(STAKING_PERIOD);
+    reward = reward.add(bonus);
 
-        // Update the staker's stake and the total staked amount
-        stakes[msg.sender] = 0;
-        totalStaked = totalStaked.sub(userStake);
+    // Update the staker's stake and the total staked amount
+    stakes[msg.sender] = 0;
+    totalStaked = totalStaked.sub(userStake);
 
-        // Transfer the reward to the staker
-        token.transfer(msg.sender, reward);
-    }
+    // Transfer the reward to the staker
+    token.transfer(msg.sender, reward);
+
+    // Transfer the staked BNB back to the staker
+    payable(msg.sender).transfer(userStake);
+}
 
     function pause() public onlyOwner {
         _pause();
