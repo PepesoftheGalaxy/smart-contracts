@@ -16,11 +16,14 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
     uint256 public constant STAKING_PERIOD = 7 days;
     uint256 public stakingStart;
     uint256 public stakingEnd;
+    uint256 public constant FEE_PERCENT = 25; // 0.25%
+    address payable public feeRecipient;
 
-    constructor(address tokenAddress, uint256 _stakingStart) {
+    constructor(address tokenAddress, uint256 _stakingStart, address payable _feeRecipient) {
         token = PepesOfTheGalaxyToken(tokenAddress);
         stakingStart = _stakingStart;
         stakingEnd = stakingStart.add(STAKING_PERIOD);
+        feeRecipient = _feeRecipient;
     }
 
     function stake() public payable whenNotPaused nonReentrant {
@@ -28,9 +31,15 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         require(block.timestamp < stakingEnd, "Staking period ended");
         require(msg.value > 0, "Must stake a positive amount");
 
+        uint256 fee = msg.value.mul(FEE_PERCENT).div(10000); // Calculate the fee
+        uint256 amountAfterFee = msg.value.sub(fee); // Subtract the fee from the staked amount
+
+        // Transfer the fee to the fee recipient
+        feeRecipient.transfer(fee);
+
         // Update the staker's stake and the total staked amount
-        stakes[msg.sender] = stakes[msg.sender].add(msg.value);
-        totalStaked = totalStaked.add(msg.value);
+        stakes[msg.sender] = stakes[msg.sender].add(amountAfterFee);
+        totalStaked = totalStaked.add(amountAfterFee);
     }
 
     function claimAndWithdraw() public whenNotPaused nonReentrant {
