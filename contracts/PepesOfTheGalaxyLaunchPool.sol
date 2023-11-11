@@ -19,6 +19,10 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
     uint256 public constant FEE_PERCENT = 250; // 2.5% due to smallest unit of number 1 Wei // we divide by 1000 later in contract to get correct %
     address payable public feeRecipient;
 
+    event Staked(address indexed user, uint256 amount);
+    event Withdrawn(address indexed user, uint256 amount, uint256 reward);
+    event RewardPaid(address indexed user, uint256 reward);
+
     constructor(address tokenAddress, uint256 _stakingStart, address payable _feeRecipient) {
         token = PepesOfTheGalaxyToken(tokenAddress);
         stakingStart = _stakingStart;
@@ -40,6 +44,8 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         // Update the staker's stake and the total staked amount
         stakes[msg.sender] = stakes[msg.sender].add(amountAfterFee);
         totalStaked = totalStaked.add(amountAfterFee);
+
+        emit Staked(msg.sender, amountAfterFee);
     }
 
     function claimAndWithdraw() public whenNotPaused nonReentrant {
@@ -60,13 +66,18 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
 
         // Transfer the staked BNB back to the staker
         payable(msg.sender).transfer(userStake);
+
+        emit Withdrawn(msg.sender, userStake, reward);
+        emit RewardPaid(msg.sender, reward);
     }
 
     function pause() public onlyOwner {
         _pause();
+        emit Paused(msg.sender);
     }
 
     function unpause() public onlyOwner {
         _unpause();
+        emit Unpaused(msg.sender);
     }
 }
