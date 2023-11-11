@@ -37,16 +37,36 @@ The contract is built using well-audited OpenZeppelin contracts which follow bes
 
 
 
-## Pepes of The Galaxy Launch Pool 
+# PepesOfTheGalaxyLaunchPool Smart Contract
 
-The PepesOfTheGalaxyLaunchPool contract is a staking contract that allows users to stake BNB (Binance Coin) and earn rewards in the form of PepesOfTheGalaxyToken. Here's a breakdown of its functionality:
+The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows users to stake BNB (or ETH) and earn rewards in the form of `PepesOfTheGalaxyToken`.
 
-1. Contract Initialization: The contract is initialized with the address of the PepesOfTheGalaxyToken and the start time of the staking period. The end time of the staking period is calculated as stakingStart + STAKING_PERIOD.
+## Key Features
 
-2. Staking: Users can stake BNB by calling the stake function. The function checks that the staking period has started and not yet ended, and that the amount staked is greater than 0. The staked amount is added to the user's stake and the total staked amount.
+- **Staking**: Users can stake BNB (or ETH) by calling the `stake` function. The staked amount is recorded in the `stakes` mapping, and the total staked amount is updated.
 
-3. Claiming Rewards and Withdrawing Stake: After the staking period has ended, users can claim their rewards and withdraw their stake by calling the claimAndWithdraw function. The function calculates the user's reward based on their share of the total staked amount, updates the user's stake and the total staked amount, and transfers the reward and the staked BNB to the user.
+- **Time-based Rewards**: The contract calculates rewards based on the amount staked and the time staked. The longer the staking period, the higher the rewards. This is achieved using a bonding curve.
 
-4. Pausing and Unpausing: The contract owner can pause and unpause the contract by calling the pause and unpause functions. When the contract is paused, users cannot stake BNB or claim rewards.
+- **Claiming and Withdrawing**: Users can claim their rewards and withdraw their staked amount after the staking period by calling the `claimAndWithdraw` function.
 
-5. Security Features: The contract uses the Pausable, Ownable, and ReentrancyGuard contracts from OpenZeppelin to add security features. Pausable allows the contract to be paused and unpaused, Ownable restricts certain functions to the contract owner, and ReentrancyGuard prevents reentrancy attacks.
+- **Pausing and Unpausing**: The contract owner can pause or unpause the contract by calling the `pause` and `unpause` functions. This is useful for stopping the contract in case of emergencies.
+
+## Key Variables
+
+- `stakes`: A mapping that records the amount of BNB (or ETH) staked by each user.
+- `stakeTime`: A mapping that records the time when each user staked their tokens.
+- `totalStaked`: The total amount of BNB (or ETH) staked by all users.
+- `token`: The `PepesOfTheGalaxyToken` token that users earn as rewards.
+- `STAKING_PERIOD`: The duration of the staking period.
+- `stakingStart`: The time when the staking period starts.
+- `stakingEnd`: The time when the staking period ends.
+- `FEE_PERCENT`: The fee percentage charged on the staked amount.
+- `feeRecipient`: The address that receives the fee.
+
+## Key Functions
+
+- `constructor`: Initializes the contract with the token address, staking start time, and fee recipient address.
+- `stake`: Allows users to stake BNB (or ETH). The staked amount is recorded and the total staked amount is updated.
+- `claimAndWithdraw`: Allows users to claim their rewards and withdraw their staked amount after the staking period.
+- `pause`: Allows the contract owner to pause the contract.
+- `unpause`: Allows the contract owner to unpause the contract.
