@@ -16,7 +16,7 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
     uint256 public constant STAKING_PERIOD = 7 days;
     uint256 public stakingStart;
     uint256 public stakingEnd;
-    uint256 public constant FEE_PERCENT = 25; // 0.25%
+    uint256 public constant FEE_PERCENT = 250; // 2.5% due to smallest unit of number 1 Wei // we divide by 1000 later in contract to get correct %
     address payable public feeRecipient;
 
     constructor(address tokenAddress, uint256 _stakingStart, address payable _feeRecipient) {
