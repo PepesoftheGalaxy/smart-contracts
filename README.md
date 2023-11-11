@@ -30,11 +30,6 @@ The PepesOfTheGalaxy contract is a custom ERC20 token contract, built with [Open
 
 - **mint(address account, uint256 amount)**: Mints new tokens to a specific address. This function can only be called by the owner of the contract.
 
-## Security
-
-The contract is built using well-audited OpenZeppelin contracts which follow best practices for contract security.
-
-
 
 
 # PepesOfTheGalaxyLaunchPool Smart Contract
