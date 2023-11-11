@@ -33,3 +33,20 @@ The PepesOfTheGalaxy contract is a custom ERC20 token contract, built with [Open
 ## Security
 
 The contract is built using well-audited OpenZeppelin contracts which follow best practices for contract security.
+
+
+
+
+## Pepes of The Galaxy Launch Pool 
+
+The PepesOfTheGalaxyLaunchPool contract is a staking contract that allows users to stake BNB (Binance Coin) and earn rewards in the form of PepesOfTheGalaxyToken. Here's a breakdown of its functionality:
+
+1. Contract Initialization: The contract is initialized with the address of the PepesOfTheGalaxyToken and the start time of the staking period. The end time of the staking period is calculated as stakingStart + STAKING_PERIOD.
+
+2. Staking: Users can stake BNB by calling the stake function. The function checks that the staking period has started and not yet ended, and that the amount staked is greater than 0. The staked amount is added to the user's stake and the total staked amount.
+
+3. Claiming Rewards and Withdrawing Stake: After the staking period has ended, users can claim their rewards and withdraw their stake by calling the claimAndWithdraw function. The function calculates the user's reward based on their share of the total staked amount, updates the user's stake and the total staked amount, and transfers the reward and the staked BNB to the user.
+
+4. Pausing and Unpausing: The contract owner can pause and unpause the contract by calling the pause and unpause functions. When the contract is paused, users cannot stake BNB or claim rewards.
+
+5. Security Features: The contract uses the Pausable, Ownable, and ReentrancyGuard contracts from OpenZeppelin to add security features. Pausable allows the contract to be paused and unpaused, Ownable restricts certain functions to the contract owner, and ReentrancyGuard prevents reentrancy attacks.
