@@ -11,6 +11,7 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
     using SafeMath for uint256;
 
     mapping(address => uint256) public stakes;
+    mapping(address => uint256) public stakeTime;
     uint256 public totalStaked;
     PepesOfTheGalaxyToken public token;
     uint256 public constant STAKING_PERIOD = 7 days;
@@ -45,6 +46,9 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         stakes[msg.sender] = stakes[msg.sender].add(amountAfterFee);
         totalStaked = totalStaked.add(amountAfterFee);
 
+        // Update the staker's stake time
+        stakeTime[msg.sender] = block.timestamp;
+
         emit Staked(msg.sender, amountAfterFee);
     }
 
@@ -57,8 +61,13 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         // Calculate the staker's share of the PEPEOG
         uint256 reward = token.balanceOf(address(this)).mul(userStake).div(totalStaked);
 
+        // Apply a bonus based on the time staked using a bonding curve
+        uint256 timeStaked = block.timestamp.sub(stakeTime[msg.sender]);
+        uint256 bonus = reward.mul(timeStaked).div(STAKING_PERIOD);
+        reward = reward.add(bonus);
+
         // Update the staker's stake and the total staked amount
-        stakes[msg.sender] = 0;
+                stakes[msg.sender] = 0;
         totalStaked = totalStaked.sub(userStake);
 
         // Transfer the reward to the staker
@@ -73,11 +82,9 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
 
     function pause() public onlyOwner {
         _pause();
-        emit Paused(msg.sender);
     }
 
     function unpause() public onlyOwner {
         _unpause();
-        emit Unpaused(msg.sender);
     }
 }
