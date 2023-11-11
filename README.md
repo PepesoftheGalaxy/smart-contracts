@@ -1,42 +1,55 @@
-# PepesOfTheGalaxy Smart Contract
+# PepesOfTheGalaxy Smart Contracts 🌌🚀
 
-## Overview
+## Contents
+- [PepesOfTheGalaxyToken Smart Contract](#pepesofthegalaxytoken-smart-contract)
+- [PepesOfTheGalaxyLaunchPool Smart Contract](#pepesofthegalaxylaunchpool-smart-contract)
 
-The PepesOfTheGalaxy contract is a custom ERC20 token contract, built with [OpenZeppelin](https://openzeppelin.com/) libraries. This contract allows the creation of a token with the name "Pepes of the Galaxy" and the symbol "PEPEG". It also includes additional features such as token burning, ownership transfer, and trading rules.
+## PepesOfTheGalaxyToken Smart Contract 🪙
 
-## Features
+The `PepesOfTheGalaxyToken` contract is a custom ERC20 token contract that includes additional features such as ownership and transfer restrictions.
 
-- **ERC20 Token**: The contract inherits from OpenZeppelin's ERC20 contract, which provides standard functions for a [ERC20 token](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/).
+### Key Features 🌟
 
-- **Ownable**: The contract also inherits from OpenZeppelin's Ownable contract. This contract provides basic access control mechanism, where there is an account (an owner) that can be granted exclusive access to certain functions.
+- **ERC20 Token**: Implements standard functions (`balanceOf`, `transfer`, etc.) and events (`Transfer`, `Approval`) of the ERC20 standard.
 
-- **Token Cap**: A cap on the total number of tokens that can be minted is implemented to prevent unlimited minting of tokens.
+- **Ownable**: Has an owner (usually the deployer) with special privileges, enforced by the `onlyOwner` modifier.
 
-- **Trading Rules**: The contract includes an option to set trading rules which can limit the minimum and maximum amount of tokens that can be held by an address. This rule can be turned on and off.
+- **Transfer Restrictions**: Features limits on token transfers. When `limited` is `true`, transfers are subject to `maxHoldingAmount` and `minHoldingAmount` constraints.
 
-- **Token Burning**: Users have the ability to burn their tokens, permanently removing them from the total supply.
+- **Uniswap Integration**: Utilizes the `uniswapV2Pair` variable to store the address of the Uniswap V2 pair. This plays a key role in enforcing transfer rules, especially when tokens are bought from Uniswap. The contract checks whether a transfer aligns with the set maximum or minimum holding amounts by comparing the sender's address with the `uniswapV2Pair` address. This ensures equitable token distribution and prevents concentration of holdings.
 
-## Functions
+### Key Variables 🔑
 
-- **constructor(uint256 _totalSupply, uint256 _tokenCap)**: Initializes the contract, mints the total supply of tokens to the message sender, and sets the token cap.
+- `maxHoldingAmount`: Maximum tokens a single address can hold.
+- `minHoldingAmount`: Minimum tokens a single address must hold.
+- `uniswapV2Pair`: Address of the Uniswap V2 pair, crucial for enforcing transfer restrictions during purchases from Uniswap.
+- `limited`: Indicates if token transfers are restricted.
 
-- **setRule(bool _limited, address _uniswapV2Pair, uint256 _maxHoldingAmount, uint256 _minHoldingAmount)**: Sets the trading rules for the contract. This function can only be called by the owner of the contract.
+### Key Functions 🛠️
 
-- **_beforeTokenTransfer(address from, address to, uint256 amount)**: A hook that runs before any token transfer. It checks the trading rules before allowing a transfer.
+- `constructor`: Initializes with total supply minted to the sender.
+- `setRule`: Lets the owner set trading rules (transfer limits, Uniswap pair, holding amounts).
+- `_beforeTokenTransfer`: Internal function to enforce trading rules before any transfer.
+- `transferOwnership`: Transfers contract ownership.
 
-- **burn(uint256 value)**: Burns the specified number of tokens from the message sender's account.
+### Events 📢
 
-- **transferOwnership(address newOwner)**: Transfers ownership of the contract to a new address. This function can only be called by the current owner of the contract.
+- `RulesSet`: Triggered when trading rules are set.
 
-- **mint(address account, uint256 amount)**: Mints new tokens to a specific address. This function can only be called by the owner of the contract.
+### Real-Life Example 🌍
 
+Launching **PepesOfTheGalaxyToken** with 1 million tokens involves:
 
+1. **Deploying the contract** with 1 million tokens minted to the deployer.
+2. **Setting trading rules**, including the `uniswapV2Pair` for purchase validations.
 
-# PepesOfTheGalaxyLaunchPool Smart Contract
+The `uniswapV2Pair` is critical in ensuring compliance with holding limits, particularly for Uniswap-based transactions. This facilitates a balanced token distribution and adherence to the set maximum and minimum holding requirements.
+
+## PepesOfTheGalaxyLaunchPool Smart Contract 🏊‍♂️
 
 The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows users to stake BNB (or ETH) and earn rewards in the form of `PepesOfTheGalaxyToken`.
 
-## Key Features
+### Key Features 🌟
 
 - **Staking**: Users can stake BNB (or ETH) by calling the `stake` function. The staked amount is recorded in the `stakes` mapping, and the total staked amount is updated.
 
@@ -46,7 +59,7 @@ The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows user
 
 - **Pausing and Unpausing**: The contract owner can pause or unpause the contract by calling the `pause` and `unpause` functions. This is useful for stopping the contract in case of emergencies.
 
-## Key Variables
+### Key Variables 🔑
 
 - `stakes`: A mapping that records the amount of BNB (or ETH) staked by each user.
 - `stakeTime`: A mapping that records the time when each user staked their tokens.
@@ -58,7 +71,7 @@ The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows user
 - `FEE_PERCENT`: The fee percentage charged on the staked amount.
 - `feeRecipient`: The address that receives the fee.
 
-## Key Functions
+### Key Functions 🛠️
 
 - `constructor`: Initializes the contract with the token address, staking start time, and fee recipient address.
 - `stake`: Allows users to stake BNB (or ETH). The staked amount is recorded and the total staked amount is updated.
