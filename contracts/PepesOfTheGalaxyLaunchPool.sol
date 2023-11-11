@@ -39,7 +39,7 @@ contract PepesOfTheGalaxyLaunchPool is Ownable, Pausable, ReentrancyGuard {
         uint256 userStake = stakes[msg.sender];
         require(userStake > 0, "No stake to claim");
 
-        // Calculate the staker's share of the PEP
+        // Calculate the staker's share of the PEPEOG
         uint256 reward = token.balanceOf(address(this)).mul(userStake).div(totalStaked);
 
         // Update the staker's stake and the total staked amount
