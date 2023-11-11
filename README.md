@@ -1,10 +1,22 @@
-# Pepes of the Galaxy Game
+# Pepes of the Galaxy Game 🌠👾
 
-## Introduction
+## Contents
+- [Introduction](#introduction)
+- [The Game Mechanics](#the-game-mechanics)
+- [Token Economics](#token-economics)
+- [Token Model](#token-model)
+- [Gameplay](#gameplay)
+- [Development Roadmap](#development-roadmap)
+- [PepesOfTheGalaxy Smart Contracts](#pepesofthegalaxy-smart-contracts)
+  - [PepesOfTheGalaxyToken Smart Contract](#pepesofthegalaxytoken-smart-contract)
+  - [PepesOfTheGalaxyLaunchPool Smart Contract](#pepesofthegalaxylaunchpool-smart-contract)
+- [Conclusion](#conclusion)
+
+## Introduction 🌌
 
 Pepes of the Galaxy is a unique, whimsical, and engaging decentralized game that takes place in the infinite reaches of the cosmos. The game revolves around a species known as Pepes, who evolved on a vibrant planet known as Peponia. Each Pepe possesses unique attributes and quirky accessories, with each feature telling a unique story of their lineage.
 
-## The Game Mechanics
+## The Game Mechanics 🛠️
 
 The game mechanics are built around a series of smart contracts that govern the rules and interactions within the game. These contracts include:
 
@@ -15,15 +27,16 @@ The game mechanics are built around a series of smart contracts that govern the 
 - **PepesOfTheGalaxyLaunchPool.sol**: This contract manages the fair launch of PEPEOG tokens. Players can stake BNB and ETH tokens to earn PEPEOG.
 
 - **PepesOfTheGalaxyBattle.sol**: This contract manages the battles between Pepes. Players can wager their PEPEOG tokens in these battles, with the winner claiming the wagered tokens.
+
 - **PepesOfTheGalaxyNFTStaking.sol**: This contract allows players to stake their Pepe NFTs to earn PEPEOG tokens.
 
-## Token Economics
+## Token Economics 💰
 
 The PEPEOG token is the lifeblood of the Pepes of the Galaxy game. It serves as the in-game currency and is used for various activities such as staking, participating in battles, and governance.
 
 The token is being launched in a fair manner, with the team getting no tokens. This ensures a level playing field for all participants and aligns the interests of the team with the success of the game.
 
-A 2.5% fee is charged on the launchpool, which goes directly to the game treasury. This treasury is used to fund the ongoing development and maintenance of the game. 
+A 2.5% fee is charged on the launchpool, which goes directly to the game treasury. This treasury is used to fund the ongoing development and maintenance of the game.
 
 The proceeds from the minting of the NFTs also go to the game treasury, providing another source of funding for the game.
 
@@ -31,7 +44,7 @@ A 10% fee is charged on each battle, which goes to the game treasury. This fee o
 
 The PEPEOG tokens can also be used in governance, allowing token holders to vote on the growth and development of the game. This ensures that the game evolves in a way that benefits the players and aligns with their interests.
 
-## Token Model
+## Token Model 📊
 
 The PEPEOG token allocation is structured to ensure long-term sustainability and equitable distribution among various stakeholders in the game ecosystem. The allocation is as follows:
 
@@ -46,7 +59,7 @@ The PEPEOG token allocation is structured to ensure long-term sustainability and
 
 This allocation model is designed to balance the needs of immediate game functionality with long-term development and community engagement.
 
-## Gameplay
+## Gameplay 🎮
 
 The gameplay is centered around the ancient prophecy that foretold a great challenge that would sweep across the galaxy. The prophecy stated, "When the planets align, the Galaxy Gates will open, and the Pepes will embark on a journey to claim their place in the galaxy."
 
@@ -56,7 +69,7 @@ The battles are not merely tests of strength but also of luck. Even the most hum
 
 As the Pepes continue their journey, they evolve, their appearances becoming grander, and their accessories more resplendent. The ultimate goal is to emerge as the guardian of the galaxy.
 
-## Development Roadmap
+## Development Roadmap 🗺️
 
 The development roadmap for Pepes of the Galaxy extends over the next 12 months and includes several exciting milestones:
 
@@ -74,17 +87,13 @@ The development roadmap for Pepes of the Galaxy extends over the next 12 months 
 
 - **Month 12**: Introduction of a new storyline and quests. These new elements will add more depth to the game and provide players with new challenges to overcome.
 
-# PepesOfTheGalaxy Smart Contracts 🌌🚀
+## PepesOfTheGalaxy Smart Contracts 🌌🚀
 
-## Contents
-- [PepesOfTheGalaxyToken Smart Contract](#pepesofthegalaxytoken-smart-contract)
-- [PepesOfTheGalaxyLaunchPool Smart Contract](#pepesofthegalaxylaunchpool-smart-contract)
-
-## PepesOfTheGalaxyToken Smart Contract 🪙
+### PepesOfTheGalaxyToken Smart Contract 🪙
 
 The `PepesOfTheGalaxyToken` contract is a custom ERC20 token contract that includes additional features such as ownership and transfer restrictions.
 
-### Key Features 🌟
+#### Key Features 🌟
 
 - **ERC20 Token**: Implements standard functions (`balanceOf`, `transfer`, etc.) and events (`Transfer`, `Approval`) of the ERC20 standard.
 
@@ -94,25 +103,25 @@ The `PepesOfTheGalaxyToken` contract is a custom ERC20 token contract that inclu
 
 - **Uniswap Integration**: Utilizes the `uniswapV2Pair` variable to store the address of the Uniswap V2 pair. This plays a key role in enforcing transfer rules, especially when tokens are bought from Uniswap. The contract checks whether a transfer aligns with the set maximum or minimum holding amounts by comparing the sender's address with the `uniswapV2Pair` address. This ensures equitable token distribution and prevents concentration of holdings.
 
-### Key Variables 🔑
+#### Key Variables 🔑
 
 - `maxHoldingAmount`: Maximum tokens a single address can hold.
 - `minHoldingAmount`: Minimum tokens a single address must hold.
 - `uniswapV2Pair`: Address of the Uniswap V2 pair, crucial for enforcing transfer restrictions during purchases from Uniswap.
 - `limited`: Indicates if token transfers are restricted.
 
-### Key Functions 🛠️
+#### Key Functions 🛠️
 
 - `constructor`: Initializes with total supply minted to the sender.
 - `setRule`: Lets the owner set trading rules (transfer limits, Uniswap pair, holding amounts).
 - `_beforeTokenTransfer`: Internal function to enforce trading rules before any transfer.
 - `transferOwnership`: Transfers contract ownership.
 
-### Events 📢
+#### Events 📢
 
 - `RulesSet`: Triggered when trading rules are set.
 
-### Real-Life Example 🌍
+#### Real-Life Example 🌍
 
 Launching **PepesOfTheGalaxyToken** with 1 million tokens involves:
 
@@ -121,11 +130,11 @@ Launching **PepesOfTheGalaxyToken** with 1 million tokens involves:
 
 The `uniswapV2Pair` is critical in ensuring compliance with holding limits, particularly for Uniswap-based transactions. This facilitates a balanced token distribution and adherence to the set maximum and minimum holding requirements.
 
-## PepesOfTheGalaxyLaunchPool Smart Contract 🏊‍♂️
+### PepesOfTheGalaxyLaunchPool Smart Contract 🏊‍♂️
 
 The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows users to stake BNB (or ETH) and earn rewards in the form of `PepesOfTheGalaxyToken`.
 
-### Key Features 🌟
+#### Key Features 🌟
 
 - **Staking**: Users can stake BNB (or ETH) by calling the `stake` function. The staked amount is recorded in the `stakes` mapping, and the total staked amount is updated.
 
@@ -135,7 +144,7 @@ The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows user
 
 - **Pausing and Unpausing**: The contract owner can pause or unpause the contract by calling the `pause` and `unpause` functions. This is useful for stopping the contract in case of emergencies.
 
-### Key Variables 🔑
+#### Key Variables 🔑
 
 - `stakes`: A mapping that records the amount of BNB (or ETH) staked by each user.
 - `stakeTime`: A mapping that records the time when each user staked their tokens.
@@ -147,7 +156,7 @@ The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows user
 - `FEE_PERCENT`: The fee percentage charged on the staked amount.
 - `feeRecipient`: The address that receives the fee.
 
-### Key Functions 🛠️
+#### Key Functions 🛠️
 
 - `constructor`: Initializes the contract with the token address, staking start time, and fee recipient address.
 - `stake`: Allows users to stake BNB (or ETH). The staked amount is recorded and the total staked amount is updated.
@@ -155,6 +164,6 @@ The `PepesOfTheGalaxyLaunchPool` contract is a staking contract that allows user
 - `pause`: Allows the contract owner to pause the contract.
 - `unpause`: Allows the contract owner to unpause the contract.
 
-## Conclusion
+## Conclusion 🎉
 
 Pepes of the Galaxy is a decentralized game that combines the excitement of NFTs, the potential of DeFi, and the thrill of battles. It offers a unique and engaging gaming experience while also providing opportunities for players to earn rewards. The game's mechanics are governed by a series of smart contracts, ensuring transparency, fairness, and security. With a robust development roadmap and a fair token economy, Pepes of the Galaxy is set to become a leading game in the blockchain space.
